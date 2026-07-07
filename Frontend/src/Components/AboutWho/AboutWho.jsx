@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./AboutWho.css";
-import aboutImg from "../../Asset/About img1.webp"
-
+import aboutImg from "../../assets/girl.webp"
+ 
 const AboutWho = () => {
   // ===========================
   // Progress Bar Animation
