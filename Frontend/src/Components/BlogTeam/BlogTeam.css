@@ -1,0 +1,177 @@
+/* Base Container Alignment with increased width metrics */
+.BlogTeam {
+  width: 100%;
+  max-width: 1400px; /* Increased from 1200px to make cards bigger */
+  margin: 0 auto;
+  padding: 50px 24px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Expanded Grid Layout definitions */
+.BlogTeam-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px; /* Increased padding gap space */
+  margin-bottom: 50px;
+}
+
+/* Enlarged Card Container Styling */
+.BlogTeam-card {
+  background: #ffffff;
+  border-radius: 12px; /* Smoother corner layout */
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.20s ease-in-out;
+}
+
+.BlogTeam-card:hover {
+  transform: translateY(-4px); /* Sleek interactive hover feedback elevation */
+}
+
+/* Height properties calibrated upward for large cards */
+.BlogTeam-imageWrapper {
+  width: 100%;
+  height: 280px; /* Increased card image container depth */
+  padding: 16px 16px 0 16px;
+  box-sizing: border-box;
+}
+
+.BlogTeam-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Content Frame Padding Extension */
+.BlogTeam-content {
+  padding: 24px 20px 28px 20px; /* Wider spacing parameters */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.BlogTeam-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+  font-size: 14px; /* Increased font scale */
+  color: #555555;
+}
+
+.BlogTeam-metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.BlogTeam-icon {
+  color: #888888;
+  font-size: 16px;
+}
+
+/* Scaled Typography Layout structures */
+.BlogTeam-title {
+  font-size: 22px; /* Larger bold sizing configuration */
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+}
+
+.BlogTeam-text {
+  font-size: 15px; /* Boosted base text visibility size */
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+/* Action Button styling updates */
+.BlogTeam-btn {
+  background-color: #5a3b5c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 26px; /* Larger physical button surface footprints */
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.BlogTeam-btn:hover {
+  background-color: #442c46;
+}
+
+/* Pagination Control Block Layout styles */
+.BlogTeam-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.BlogTeam-pageBtn {
+  background-color: #5a3b5c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  min-width: 50px; /* Marginally widened for visual consistency */
+  height: 42px;    /* Slightly taller layout blocks */
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+/* Active page configuration block properties */
+.BlogTeam-pageBtn.active {
+  background-color: #1c1c1c; 
+}
+
+/* Dynamic Padding extensions for action text pagination labels */
+.BlogTeam-pageBtn.prev,
+.BlogTeam-pageBtn.next {
+  padding: 0 20px;
+}
+
+.BlogTeam-pageBtn:hover {
+  opacity: 0.9;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablet View Optimization */
+@media (max-width: 1024px) {
+  .BlogTeam-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Mobile View Optimization */
+@media (max-width: 650px) {
+  .BlogTeam-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .BlogTeam-imageWrapper {
+    height: 240px; /* Balanced ratio adjustments for small hand-held monitors */
+  }
+
+  .BlogTeam {
+    padding: 30px 16px;
+  }
+}
