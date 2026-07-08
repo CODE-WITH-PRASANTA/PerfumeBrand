@@ -1,0 +1,170 @@
+/* ==========================
+   ABOUT BREADCRUMB
+========================== */
+
+.about-breadcrumb {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+
+  /* Same color as screenshot */
+  background: #64335b;
+
+  /* Optional Image */
+  background-image: url("/images/about-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark Purple Overlay */
+.about-breadcrumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(100, 51, 91, 0.95);
+}
+
+/* Container */
+.about-breadcrumb-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1400px;
+  height: 100%;
+
+  margin: auto;
+  padding: 0 45px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Breadcrumb */
+.about-breadcrumb-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Home Link */
+.about-breadcrumb-links a {
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+.about-breadcrumb-links a:hover {
+  opacity: 0.85;
+}
+
+/* Separator */
+.about-breadcrumb-links span {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Current Page */
+.about-breadcrumb-links p {
+  margin: 0;
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* ==========================
+   Laptop
+========================== */
+
+@media (max-width: 1200px) {
+  .about-breadcrumb-container {
+    padding: 0 35px;
+  }
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 992px) {
+  .about-breadcrumb {
+    height: 135px;
+  }
+
+  .about-breadcrumb-container {
+    padding: 0 30px;
+  }
+
+  .about-breadcrumb-links {
+    gap: 14px;
+  }
+
+  .about-breadcrumb-links a,
+  .about-breadcrumb-links p {
+    font-size: 15px;
+  }
+
+  .about-breadcrumb-links span {
+    font-size: 20px;
+  }
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 768px) {
+  .about-breadcrumb {
+    height: 115px;
+  }
+
+  .about-breadcrumb-container {
+    padding: 0 20px;
+  }
+
+  .about-breadcrumb-links {
+    gap: 10px;
+  }
+
+  .about-breadcrumb-links a,
+  .about-breadcrumb-links p {
+    font-size: 14px;
+  }
+
+  .about-breadcrumb-links span {
+    font-size: 18px;
+  }
+}
+
+/* ==========================
+   Small Mobile
+========================== */
+
+@media (max-width: 480px) {
+  .about-breadcrumb {
+    height: 100px;
+  }
+
+  .about-breadcrumb-container {
+    padding: 0 15px;
+  }
+
+  .about-breadcrumb-links {
+    gap: 8px;
+  }
+
+  .about-breadcrumb-links a,
+  .about-breadcrumb-links p {
+    font-size: 13px;
+  }
+
+  .about-breadcrumb-links span {
+    font-size: 16px;
+  }
+}

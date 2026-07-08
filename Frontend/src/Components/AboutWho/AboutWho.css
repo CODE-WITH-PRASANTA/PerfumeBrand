@@ -1,0 +1,538 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  color: #1d1d1d;
+}
+
+/* ==========================================
+   SECTION
+========================================== */
+
+.aw-section {
+  width: 100%;
+  padding: 90px 20px 70px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.aw-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 90px;
+}
+
+/* ==========================================
+   LEFT SIDE
+========================================== */
+
+.aw-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.aw-image-box {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.aw-image-box img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ==========================================
+   FLOATING CARD
+========================================== */
+
+.aw-progress-card {
+  position: absolute;
+  right: -25px;
+  bottom: -22px;
+
+  width: 350px;
+
+  background: #fff;
+
+  border-radius: 10px;
+
+  padding: 22px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  animation: floatCard 3.5s ease-in-out infinite;
+
+  z-index: 20;
+}
+
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ==========================================
+   PROGRESS ITEM
+========================================== */
+
+.aw-progress-item {
+  margin-bottom: 28px;
+}
+
+.aw-progress-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   TOP
+========================================== */
+
+.aw-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+/* ==========================================
+   PERCENT BADGE
+========================================== */
+
+.aw-percent {
+  min-width: 56px;
+  height: 40px;
+
+  background: #6d345f;
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 30px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  transition: .4s;
+}
+
+.aw-percent:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.aw-progress-top h4 {
+  flex: 1;
+
+  text-align: right;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #454545;
+
+  margin-left: 20px;
+
+  letter-spacing: .3px;
+}
+
+/* ==========================================
+   BAR
+========================================== */
+
+.aw-progress {
+  width: 100%;
+  height: 9px;
+
+  background: #e7edf8;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   BAR FILL
+========================================== */
+
+.aw-progress-fill {
+  width: 0%;
+  height: 100%;
+
+  background: #6d345f;
+
+  border-radius: 20px;
+
+  transition: width .25s linear;
+}
+
+/* ==========================================================
+   RIGHT CONTENT
+========================================================== */
+
+.aw-right {
+  flex: 1;
+  max-width: 540px;
+}
+
+.aw-small-title {
+  display: inline-block;
+  color: #6d345f;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.aw-right h2 {
+  font-size: 45px;
+  line-height: 1.20;
+  color: #1b1b1b;
+  font-weight: 700;
+  margin-bottom: 28px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.aw-right p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #6a6a6a;
+  margin-bottom: 38px;
+}
+
+/* ==========================================================
+   SHOP BUTTON
+========================================================== */
+
+.aw-shop-btn {
+  position: relative;
+  overflow: hidden;
+
+  width: 175px;
+  height: 58px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 8px;
+
+  background: #6d345f;
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .5px;
+
+  cursor: pointer;
+  transition: all .35s ease;
+}
+
+.aw-shop-btn:hover {
+  background: #4e2445;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(109, 52, 95, .28);
+}
+
+.aw-shop-btn:active {
+  transform: scale(.98);
+}
+
+.aw-shop-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+
+  width: 70%;
+  height: 100%;
+
+  background: rgba(255,255,255,.28);
+
+  transform: skewX(-25deg);
+  transition: .7s;
+}
+
+.aw-shop-btn:hover::before {
+  left: 150%;
+}
+
+/* ==========================================================
+   COUNTER SECTION
+========================================================== */
+
+.aw-counter-section {
+  max-width: 1320px;
+  margin: 90px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+}
+
+.aw-counter-box {
+  text-align: center;
+}
+
+.aw-counter-box h2 {
+  font-size: 58px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.aw-counter-box p {
+  font-size: 19px;
+  color: #222;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (max-width:1200px){
+
+.aw-container{
+gap:60px;
+}
+
+.aw-right h2{
+font-size:42px;
+}
+
+.aw-progress-card{
+right:0;
+bottom:-20px;
+}
+
+.aw-counter-box h2{
+font-size:48px;
+}
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width:992px){
+
+.aw-container{
+flex-direction:column;
+gap:70px;
+}
+
+.aw-left,
+.aw-right{
+width:100%;
+max-width:100%;
+}
+
+.aw-right{
+text-align:center;
+}
+
+.aw-progress-card{
+left:50%;
+right:auto;
+transform:translateX(-50%);
+bottom:-35px;
+width:88%;
+max-width:420px;
+animation:none;
+}
+
+.aw-right h2{
+font-size:38px;
+}
+
+.aw-counter-section{
+grid-template-columns:repeat(2,1fr);
+gap:45px 20px;
+margin-top:110px;
+}
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+.aw-section{
+padding:70px 18px 55px;
+}
+
+.aw-container{
+gap:65px;
+}
+
+.aw-image-box{
+max-width:100%;
+}
+
+.aw-progress-card{
+width:94%;
+padding:18px;
+bottom:-42px;
+}
+
+.aw-percent{
+width:50px;
+height:36px;
+font-size:16px;
+}
+
+.aw-progress-top h4{
+font-size:15px;
+margin-left:12px;
+}
+
+.aw-right h2{
+font-size:31px;
+line-height:1.35;
+margin-bottom:22px;
+}
+
+.aw-right p{
+font-size:15px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.aw-shop-btn{
+width:170px;
+height:55px;
+}
+
+.aw-counter-section{
+grid-template-columns:1fr;
+gap:35px;
+margin-top:105px;
+}
+
+.aw-counter-box h2{
+font-size:42px;
+}
+
+.aw-counter-box p{
+font-size:17px;
+letter-spacing:1.2px;
+}
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:480px){
+
+.aw-section{
+padding:55px 15px 45px;
+}
+
+.aw-progress-card{
+padding:16px;
+border-radius:8px;
+}
+
+.aw-progress-item{
+margin-bottom:20px;
+}
+
+.aw-percent{
+width:46px;
+height:34px;
+font-size:15px;
+}
+
+.aw-progress-top{
+margin-bottom:10px;
+}
+
+.aw-progress-top h4{
+font-size:13px;
+}
+
+.aw-progress{
+height:8px;
+}
+
+.aw-small-title{
+font-size:13px;
+margin-bottom:10px;
+}
+
+.aw-right h2{
+font-size:26px;
+}
+
+.aw-right p{
+font-size:14px;
+}
+
+.aw-shop-btn{
+width:160px;
+height:52px;
+font-size:15px;
+}
+
+.aw-counter-box h2{
+font-size:36px;
+}
+
+.aw-counter-box p{
+font-size:15px;
+}
+
+}
