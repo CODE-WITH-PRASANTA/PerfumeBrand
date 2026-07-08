@@ -11,19 +11,19 @@ ABOUT WHY SECTION
 .about-why-section {
   width: 100%;
   background: #ffffff;
-  padding: 90px 0;
+  padding: 30px 0;
   overflow: hidden;
 }
 
 .about-why-container {
-  width: 92%;
-  max-width: 1320px;
+  width: 82%;
+  max-width: 1300px;
   margin: auto;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 70px;
+  gap: 50px;
 }
 
 /*====================================
@@ -32,7 +32,7 @@ LEFT
 
 .about-why-left {
   flex: 1;
-  max-width: 560px;
+  max-width: 500px;
 }
 
 .about-why-subtitle {
@@ -42,16 +42,16 @@ LEFT
   color: #6d2f63;
   text-transform: uppercase;
   letter-spacing: 1.4px;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .about-why-title {
   font-family: Georgia, "Times New Roman", serif;
   color: #111;
-  font-size: 58px;
+  font-size: 50px;
   line-height: 1.12;
-  font-weight: 700;
+  font-weight: 650;
   margin-bottom: 30px;
 }
 
@@ -77,16 +77,16 @@ BUTTONS
   outline: none;
   cursor: pointer;
 
-  min-width: 190px;
-  height: 62px;
+  min-width: 170px;
+  height: 66px;
 
   background: #6d2f63;
   color: #fff;
 
   border-radius: 12px;
 
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 650;
 
   transition: .35s;
 }
