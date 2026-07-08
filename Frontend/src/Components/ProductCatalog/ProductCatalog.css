@@ -1,0 +1,399 @@
+/* ==========================================================================
+   PRODUCT CATALOG LAYOUT
+   ========================================================================== */
+.ProductCatalog {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+/* ==========================================================================
+   TOP BAR (SORT & COUNT ALIGNED RIGHT)
+   ========================================================================== */
+.ProductCatalog-topBar {
+  width: 100%;
+  padding: 12px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.ProductCatalog-filterControls {
+  display: flex;
+  justify-content: flex-end; /* Pushes content completely to the right side */
+  width: 100%;
+}
+
+/* Groups Sort tools and Product counter side-by-side on the right */
+.ProductCatalog-rightControlsGroup {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ProductCatalog-sortWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ProductCatalog-sortLabel {
+  font-size: 14px;
+  color: #767676;
+}
+
+.ProductCatalog-dropdown {
+  position: relative;
+}
+
+/* Dropdown selector button matching reference styling */
+.ProductCatalog-dropdownSelect {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px; 
+  padding: 8px 14px;
+  min-width: 190px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ProductCatalog-dropdownSelect:hover {
+  border-color: #b5b5b5;
+}
+
+.ProductCatalog-dropdownIcon {
+  font-size: 11px;
+  color: #666666;
+}
+
+/* Product count display text position */
+.ProductCatalog-productCount {
+  font-size: 14px;
+  color: #767676;
+}
+
+/* Dropdown Overlay Options list */
+.ProductCatalog-dropdownMenu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  padding: 6px 0;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ProductCatalog-dropdownItem {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #4a4a4a;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ProductCatalog-dropdownItem:hover {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+.ProductCatalog-dropdownItem.active {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* ==========================================================================
+   MAIN STRUCTURAL LAYOUT
+   ========================================================================== */
+.ProductCatalog-mainLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   SIDEBAR & ACCORDION FILTERS
+   ========================================================================== */
+.ProductCatalog-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProductCatalog-filterSection {
+  border-bottom: 1px solid #eaeaea;
+  padding: 16px 0;
+}
+
+.ProductCatalog-filterSection:first-child {
+  padding-top: 0;
+}
+
+.ProductCatalog-filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.ProductCatalog-filterContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 14px;
+}
+
+/* Checkbox alignment structures */
+.ProductCatalog-checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.ProductCatalog-checkbox {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  accent-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.ProductCatalog-labelText {
+  color: #1a1a1a;
+  margin-right: 4px;
+}
+
+.ProductCatalog-countText {
+  color: #999999;
+}
+
+/* Scrollable window configurations for heavy variant listings */
+.scrollable {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #dbdbdb;
+  border-radius: 4px;
+}
+
+/* Price Range input styling layouts */
+.ProductCatalog-priceInputsContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.ProductCatalog-priceInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.ProductCatalog-priceInputLabel {
+  font-size: 12px;
+  color: #767676;
+}
+
+.ProductCatalog-priceInputField {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ProductCatalog-priceSeparator {
+  color: #cccccc;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   PRODUCT DISPLAY GRID
+   ========================================================================== */
+.ProductCatalog-content {
+  width: 100%;
+}
+
+.ProductCatalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  column-gap: 20px;
+  row-gap: 35px;
+}
+
+/* ==========================================================================
+   PRODUCT CARDS SYSTEM
+   ========================================================================== */
+.ProductCatalog-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+}
+
+.ProductCatalog-imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f7f7f7;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ProductCatalog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Offer Badges Layouts */
+.ProductCatalog-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Hover Action Button Triggers */
+.ProductCatalog-actionOverlay {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  transition: bottom 0.3s ease;
+  z-index: 3;
+}
+
+.ProductCatalog-card:hover .ProductCatalog-actionOverlay {
+  bottom: 0;
+}
+
+.ProductCatalog-actionBtn {
+  background-color: #ffffff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ProductCatalog-actionBtn:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Info Details Block Structure */
+.ProductCatalog-info {
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ProductCatalog-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.ProductCatalog-stars svg {
+  font-size: 13px;
+}
+
+.star-filled {
+  color: #ffb800;
+}
+
+.star-empty {
+  color: #e0e0e0;
+}
+
+.ProductCatalog-productTitle {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  color: #1a1a1a;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.ProductCatalog-productTitle:hover {
+  text-decoration: underline;
+}
+
+.ProductCatalog-pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.ProductCatalog-currentPrice {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.ProductCatalog-oldPrice {
+  color: #999999;
+  text-decoration: line-through;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (BREAKPOINTS)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .ProductCatalog-mainLayout {
+    grid-template-columns: 1fr;
+  }
+  .ProductCatalog-sidebar {
+    display: none;
+  }
+}
