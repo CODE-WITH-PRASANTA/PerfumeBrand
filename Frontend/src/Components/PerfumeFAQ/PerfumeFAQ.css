@@ -1,0 +1,239 @@
+:root {
+  --color-luxury-plum: #4B3049;       /* Deep plum/purple tone for text and buttons */
+  --color-luxury-plum-hover: #382236; /* Slightly deeper purple for premium hover transitions */
+  --color-text-dark: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-border-line: #e5e5e5;
+}
+
+.PerfumeFAQ-container {
+  width: 100%;
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 60px 24px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.PerfumeFAQ-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ==========================================================================
+   LEFT SIDE: TEXT AND ACCORDION STYLING
+   ========================================================================== */
+.PerfumeFAQ-content-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.PerfumeFAQ-tagline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--color-luxury-plum);
+  margin-bottom: 12px;
+}
+
+.PerfumeFAQ-main-title {
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 40px 0;
+  letter-spacing: -0.5px;
+}
+
+.PerfumeFAQ-accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.PerfumeFAQ-item {
+  border-bottom: 1px solid var(--color-border-line);
+}
+
+.PerfumeFAQ-trigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 24px 0;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  transition: color 0.2s ease;
+}
+
+.PerfumeFAQ-question {
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding-right: 16px;
+}
+
+.PerfumeFAQ-icon {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  user-select: none;
+  color: var(--color-text-dark);
+}
+
+/* CSS Transition for Smooth Accordion Actions */
+.PerfumeFAQ-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.PerfumeFAQ-panel.show {
+  max-height: 200px; /* Adjust if content size grows significantly */
+}
+
+.PerfumeFAQ-answer {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0 0 24px 0;
+}
+
+/* ==========================================================================
+   RIGHT SIDE: IMAGE AND FLOATING CARD OVERLAY
+   ========================================================================== */
+.PerfumeFAQ-media-side {
+  width: 100%;
+}
+
+.PerfumeFAQ-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+}
+
+.PerfumeFAQ-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Rounded bottom floating dialogue box matching exact reference UI */
+.PerfumeFAQ-floating-box {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.floating-box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.floating-box-title {
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+.floating-box-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Premium Hover Button Style */
+.PerfumeFAQ-help-btn {
+  background-color: var(--color-luxury-plum);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.PerfumeFAQ-help-btn:hover {
+  background-color: var(--color-luxury-plum-hover);
+  transform: translateY(-1px);
+}
+
+.PerfumeFAQ-help-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .PerfumeFAQ-grid {
+    gap: 40px;
+  }
+  .PerfumeFAQ-main-title {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+  .PerfumeFAQ-image-wrapper {
+    height: 460px;
+  }
+  .PerfumeFAQ-question {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Transforms layout cleanly into a beautifully ordered stack for mobile */
+  .PerfumeFAQ-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .PerfumeFAQ-container {
+    padding: 40px 20px;
+  }
+  .PerfumeFAQ-image-wrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Handles internal micro-stacking inside the floating overlay card on narrow screens */
+  .PerfumeFAQ-floating-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  .PerfumeFAQ-help-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

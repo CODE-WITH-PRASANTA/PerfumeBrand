@@ -1,0 +1,642 @@
+:root {
+  --navy-dark-primary: #343A40; 
+  --navy-button-color: #383E4E; /* Exact match dark layout button color */
+  --star-yellow: #FFB800; 
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --bg-pill-gray: #F1F3F5;
+  --border-card-box: #DCE1E9; /* Exact soft border tint */
+}
+
+.PerfumeReviews-wrapper {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.PerfumeReviews-section-titel{
+  font-size: 25px;
+  padding: 10px 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Structural Two Column Split Grid */
+.PerfumeReviews-layout-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   SIDEBAR BLOCK CARD STYLE (MATCHING THE IMAGE SPECIFICATIONS)
+   ========================================================================== */
+.PerfumeReviews-sidebar-card {
+  border: 1px solid var(--border-card-box);
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top internal container placing score side-by-side with bars */
+.sidebar-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 20px 24px;
+  border-bottom: 1px solid #E9ECEF; /* Clean separating line */
+}
+
+.PerfumeReviews-score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.PerfumeReviews-huge-score {
+  font-size: 52px;
+  font-weight: 700;
+  color: #2D313E;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.PerfumeReviews-stars-row {
+  display: flex;
+  gap: 2px;
+  margin: 8px 0 6px 0;
+}
+
+.star-icon {
+  font-size: 18px;
+  color: #E2E5E9;
+}
+.star-icon.filled {
+  color: var(--star-yellow);
+}
+
+.PerfumeReviews-total-text {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Progress bars stack layout on right side of block */
+.PerfumeReviews-bars-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.PerfumeReviews-bar-row {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #A0A5B0;
+}
+
+.bar-num-label {
+  font-weight: 600;
+  color: var(--star-yellow);
+  width: 10px;
+}
+
+.bar-star-mini {
+  color: var(--star-yellow);
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: 6px;
+}
+
+.bar-track-bg {
+  flex-grow: 1;
+  height: 7px;
+  background-color: #EBF0F3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill-indicator {
+  height: 100%;
+  background-color: var(--star-yellow);
+  border-radius: 4px;
+}
+
+.bar-percentage-value {
+  width: 36px;
+  text-align: right;
+  font-size: 13px;
+  color: #AAB0BC;
+  margin-left: 6px;
+}
+
+/* Bottom Call-To-Action Layout */
+.PerfumeReviews-action-prompt {
+  padding: 20px 24px 24px 24px;
+  text-align: center;
+}
+
+.PerfumeReviews-action-prompt h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333943;
+  margin: 0 0 4px 0;
+}
+
+.PerfumeReviews-action-prompt p {
+  font-size: 13px;
+  color: #6C757D;
+  margin: 0 0 16px 0;
+}
+
+.PerfumeReviews-write-trigger-btn {
+  width: 100%;
+  background-color: var(--navy-button-color);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.PerfumeReviews-write-trigger-btn:hover {
+  background-color: #272C38;
+}
+
+/* ==========================================================================
+   FEED STREAMS CONTROL AND LISTING CARDS
+   ========================================================================== */
+.PerfumeReviews-controls-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E9ECEF;
+  padding-bottom: 16px;
+}
+
+.controls-left-group, .controls-right-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sort-by-label-text{
+    font-size: 15px;
+}
+
+.filter-pill-btn {
+  background-color: var(--bg-pill-gray);
+  color: #495057;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-pill-btn.active {
+  background-color: #2D323E;
+  color: #FFFFFF;
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown-trigger-btn {
+  background-color: var(--bg-pill-gray);
+  color: #495057;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dropdown-popup-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #FFFFFF;
+  border: 1px solid #E2E5E9;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 100;
+}
+
+.ratings-dropdown { padding: 8px 12px; min-width: 110px; }
+.dropdown-checkbox-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 13px; }
+.sort-dropdown { right: 0; left: auto; width: 140px; }
+.sort-option-item { padding: 8px 14px; font-size: 13px; cursor: pointer; }
+.sort-option-item.selected { background-color: #2D323E; color: #FFFFFF; }
+
+/* FEED OUTPUT CONTAINER LISTS */
+.PerfumeReviews-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.single-review-card-item {
+  border-bottom: 1px solid #F1F3F5;
+  padding-bottom: 24px;
+}
+
+.reviewer-identity-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.identity-avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.identity-name-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.single-review-card-item .review-stars-row { justify-content: flex-start; margin-bottom: 8px; }
+.single-review-card-item .star-icon { font-size: 15px; }
+.review-headline-text { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.review-body-comment { font-size: 14px; line-height: 1.5; color: #495057; margin-bottom: 10px; }
+.review-meta-timestamp { font-size: 12px; color: #868E96; margin-bottom: 12px; }
+
+.review-card-actions-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.helpful-voting-button {
+  background-color: #F1F3F5;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.report-abuse-button {
+  background: none;
+  border: none;
+  color: #868E96;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* DIALOG MODAL BACKDROP SYSTEM */
+.PerfumeReviews-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.PerfumeReviews-modal-window {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.animate-popup { animation: popupFx 0.2s ease-out; }
+@keyframes popupFx { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modal-top-bar-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #E9ECEF; }
+.modal-close-round-btn { background: none; border: none; font-size: 22px; cursor: pointer; }
+.modal-form-scrollable-body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.modal-interactive-stars-block { display: flex; gap: 6px; }
+.interactive-star-node { font-size: 32px; color: #DEE2E6; cursor: pointer; }
+.interactive-star-node.hovered-yellow { color: var(--star-yellow); }
+.modal-input-field-group { display: flex; flex-direction: column; gap: 6px; }
+.modal-input-field-group textarea { height: 80px; padding: 10px; border: 1px solid #CCD1D9; border-radius: 6px; }
+.modal-input-field-group input { height: 38px; padding: 0 12px; border: 1px solid #CCD1D9; border-radius: 6px; }
+.modal-form-submit-prime-btn { background-color: #2F313A; color: #FFFFFF; border: none; border-radius: 4px; height: 44px; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 768px) {
+  .PerfumeReviews-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   EMPTY STATE RESULTS STYLES
+   ========================================================================== */
+.reviews-empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  width: 100%;
+}
+
+/* Custom CSS drawn smiley face matching the reference image exactly */
+.empty-smiley-face-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #F1F3F5;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smiley-eyes {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+.smiley-eyes::before,
+.smiley-eyes::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #ADB5BD;
+  border-radius: 50%;
+}
+
+.smiley-mouth {
+  width: 20px;
+  height: 10px;
+  border-bottom: 5px solid #ADB5BD;
+  border-radius: 0 0 20px 20px;
+}
+
+/* ==========================================================================
+   EXACT WRITE A REVIEW MODAL DESIGN SPECIFICATIONS
+   ========================================================================== */
+.modal-exact-look {
+  background-color: #FFFFFF;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 540px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+  position: relative;
+  border: none;
+}
+
+.modal-exact-header {
+  padding: 24px 28px 12px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-exact-header h3 {
+  font-size: 15px;
+  color: #333333;
+  font-weight: 500;
+  margin: 0;
+}
+
+.modal-exact-close-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  color: #555555;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-exact-body {
+  padding: 0 28px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Light Grey Rounded Star Nodes Matching Image */
+.modal-exact-stars-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.exact-star-node {
+  font-size: 36px;
+  color: #DDE1E5; /* Light grey base stars */
+  cursor: pointer;
+  transition: color 0.1s ease;
+  user-select: none;
+}
+
+.exact-star-node.active {
+  color: #FFB800; /* Exact golden active state */
+}
+
+/* Precise Field Styling Blocks */
+.modal-exact-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-exact-field-group label {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #3F444A;
+}
+
+.modal-exact-field-group textarea {
+  width: 100%;
+  height: 96px;
+  padding: 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333333;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.modal-exact-field-group textarea::placeholder,
+.modal-exact-field-group input::placeholder {
+  color: #A0AEC0;
+}
+
+.modal-exact-field-group input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+/* Sub-hints beneath inputs */
+.input-subtext-hint {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 2px;
+}
+
+/* Label right split text settings */
+.field-label-row-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-display-format-selector {
+  font-size: 12px;
+  color: #4A5568;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.arrows-up-down {
+  font-size: 10px;
+  color: #718096;
+}
+
+.info-circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #718096;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+/* Dashed Media Box Rendering Frame */
+.modal-exact-upload-zone {
+  border: 1px dashed #A0AEC0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+}
+
+.modal-exact-upload-zone p {
+  font-size: 12.5px;
+  color: #4A5568;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.modal-exact-upload-zone .underline-link {
+  text-decoration: underline;
+  color: #2D3748;
+  font-weight: 500;
+}
+
+/* Pure CSS Minimalist Image frame vector layout */
+.upload-placeholder-icon {
+  width: 44px;
+  height: 34px;
+  border: 1px solid #CBD5E0;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.inner-photo-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #F7FAFC;
+}
+
+.inner-circle-sun {
+  width: 6px;
+  height: 6px;
+  background-color: #CBD5E0;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+
+.inner-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid #E2E8F0;
+}
+
+.inner-mountains::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #CBD5E0;
+}
+
+/* Exact Charcoal Black Bottom Primary Form Button */
+.modal-exact-submit-btn {
+  width: 100%;
+  background-color: #2D2D2D; /* Exact dark layout tone from reference image */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  height: 46px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.modal-exact-submit-btn:hover {
+  background-color: #1A1A1A;
+}

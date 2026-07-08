@@ -1,0 +1,86 @@
+.BlogBreadcrum {
+  width: 100%;
+  background-color: #5a3a52;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.BlogBreadcrum-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.BlogBreadcrum-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9c9d4;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.BlogBreadcrum-link:hover {
+  color: #ffffff;
+}
+
+.BlogBreadcrum-icon {
+  font-size: 14px;
+}
+
+.BlogBreadcrum-separator {
+  color: #d9c9d4;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.BlogBreadcrum-current {
+  color: #d9c9d4;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .BlogBreadcrum {
+    padding: 30px 0;
+  }
+
+  .BlogBreadcrum-container {
+    padding: 0 24px;
+  }
+
+  .BlogBreadcrum-link,
+  .BlogBreadcrum-separator,
+  .BlogBreadcrum-current {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .BlogBreadcrum {
+    padding: 20px 0;
+  }
+
+  .BlogBreadcrum-container {
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .BlogBreadcrum-link,
+  .BlogBreadcrum-separator,
+  .BlogBreadcrum-current {
+    font-size: 13px;
+  }
+
+  .BlogBreadcrum-icon {
+    font-size: 12px;
+  }
+}
