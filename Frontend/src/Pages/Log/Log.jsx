@@ -6,7 +6,8 @@ const Log = () => {
   return (
     <div>
         <BlogBreadcrumb />
-        <Blog /> 
+        <Blog />
+        
     </div>
   )
 }

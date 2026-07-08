@@ -1,267 +1,314 @@
-.WhoWeAre {
+/* Custom Global Configs */
+:root {
+  --arome-plum-theme: #523A52;
+  --arome-dark-plum: #1c101c;
+  --arome-card-text: #222222;
+  --arome-muted-grey: #706770;
+  --arome-pagination-dark: #1a1a1a;
+  --arome-footer-text: #e0d8e0;
+}
+
+.blog-container {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 1300px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-container *, 
+.blog-container *::before, 
+.blog-container *::after {
+  box-sizing: inherit;
+}
+
+/* --- Layout Main & Grid --- */
+.blog-main {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 40px;
-  box-sizing: border-box;
-  font-family: 'Georgia', 'Times New Roman', serif;
+  padding: 60px 20px;
 }
 
-.WhoWeAre * {
-  box-sizing: border-box;
-}
-
-/* ---------- Top section ---------- */
-.WhoWeAre-top {
+/* Strict 3-column structural layout matching the 4th reference photo */
+.blog-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.WhoWeAre-imageWrap {
-  position: relative;
-}
-
-.WhoWeAre-image {
+  grid-template-cols: repeat(3, 1fr);
+  gap: 30px;
   width: 100%;
-  height: 460px;
-  object-fit: cover;
-  display: block;
 }
 
-/* Floating stats card */
-.WhoWeAre-card {
-  position: absolute;
-  right: -30px;
-  bottom: -60px;
+/* --- Card View UI Design --- */
+.blog-card {
   background: #ffffff;
-  width: 90%;
-  max-width: 380px;
-  padding: 24px 24px 24px 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  border: 1px solid #f2edf2;
+  box-shadow: 0 4px 24px rgba(82, 58, 82, 0.04);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 22px;
 }
 
-.WhoWeAre-progressRow {
+.blog-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1.55 / 1;
+  overflow: hidden;
+  background-color: #fcfbfc;
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-body {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-left: 24px;
+  flex-grow: 1;
 }
 
-.WhoWeAre-progressHeader {
+.blog-card-meta {
   display: flex;
   align-items: center;
   gap: 16px;
+  font-size: 12.5px;
+  color: var(--arome-muted-grey);
+  margin-bottom: 12px;
 }
 
-.WhoWeAre-badge {
-  background: #4e2440;
+.blog-card-author, 
+.blog-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-meta-icon {
+  font-size: 13px;
+  color: #9c929c;
+}
+
+.blog-card-title {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--arome-card-text);
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+
+.blog-card-excerpt {
+  font-size: 13.5px;
+  color: var(--arome-muted-grey);
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.blog-card-btn {
+  align-self: flex-start;
+  margin-top: auto;
+  border: none;
+  background-color: var(--arome-plum-theme);
   color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-
-.WhoWeAre-progressLabel {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #2b2b2b;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.WhoWeAre-progressTrack {
-  width: 100%;
-  height: 4px;
-  background: #e6dfe4;
+.blog-card-btn:hover {
+  opacity: 0.9;
+}
+
+/* --- Pagination Controls --- */
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 50px;
+}
+
+.blog-pag-item {
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--arome-plum-theme);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.blog-pag-item.blog-pag-active {
+  background-color: var(--arome-pagination-dark) !important;
+}
+
+.blog-pag-next {
+  width: auto;
+  padding: 0 14px;
+}
+
+/* --- Footer Brand Section --- */
+.blog-footer {
+  background-color: var(--arome-plum-theme);
+  padding: 70px 20px 50px 20px;
   position: relative;
 }
 
-.WhoWeAre-progressFill {
-  height: 100%;
-  background: #4e2440;
+.blog-footer-max {
+  max-w: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-cols: repeat(4, 1fr);
+  gap: 40px;
 }
 
-/* ---------- Content section ---------- */
-.WhoWeAre-content {
+/* Serif Typography Logo Style */
+.blog-logo-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-.WhoWeAre-eyebrow {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #6e3159;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-}
-
-.WhoWeAre-heading {
-  font-size: 34px;
-  line-height: 1.3;
-  color: #1a1a1a;
-  font-weight: 700;
-  margin: 0 0 20px 0;
-}
-
-.WhoWeAre-text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #6b6b6b;
-  max-width: 480px;
-  margin: 0 0 28px 0;
-}
-
-.WhoWeAre-button {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #4e2440;
+  margin-bottom: 20px;
   color: #ffffff;
+}
+
+.blog-logo-main {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+}
+
+.blog-logo-sub {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #d1c7d1;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.blog-footer-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--arome-footer-text);
+  margin: 0 0 24px 0;
+}
+
+/* Circular Social Links */
+.blog-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-footer-socials a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--arome-plum-theme);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Generic Footer Columns */
+.blog-footer-heading {
+  color: #ffffff;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+}
+
+.blog-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-footer-list li {
+  font-size: 14px;
+  color: var(--arome-footer-text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.blog-footer-list li span {
+  margin-right: 8px;
+  color: #9c8a9c;
+}
+
+.blog-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.blog-contact-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.blog-footer-contact a {
+  color: var(--arome-footer-text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Floating Scroll-Up Pin */
+.blog-scroll-top {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background-color: #432e43;
   border: none;
-  padding: 16px 36px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  color: #ffffff;
+  padding: 8px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.WhoWeAre-button:hover {
-  background: #3a1b30;
-}
-
-/* ---------- Stats section ---------- */
-.WhoWeAre-stats {
-  margin-top: 130px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-}
-
-.WhoWeAre-statValue {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 8px;
-}
-
-.WhoWeAre-statLabel {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: #6b6b6b;
-  text-transform: uppercase;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 992px) {
-  .WhoWeAre-top {
-    grid-template-columns: 1fr;
-    gap: 100px;
+/* --- Media Queries for Responsive Screens --- */
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-cols: repeat(2, 1fr);
   }
-
-  .WhoWeAre-card {
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    bottom: -50px;
-    padding: 20px;
-    width: 92%;
-  }
-
-  .WhoWeAre-progressRow {
-    padding-left: 0;
-  }
-
-  .WhoWeAre-stats {
-    margin-top: 90px;
+  .blog-footer-max {
+    grid-template-cols: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
-@media (max-width: 768px) {
-  .WhoWeAre {
-    padding: 40px 24px;
+@media (max-width: 640px) {
+  .blog-grid {
+    grid-template-cols: 1fr;
   }
-
-  .WhoWeAre-heading {
-    font-size: 26px;
+  .blog-footer-max {
+    grid-template-cols: 1fr;
   }
-
-  .WhoWeAre-image {
-    height: 380px;
-  }
-
-  .WhoWeAre-stats {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 32px;
-  }
-
-  .WhoWeAre-statValue {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 480px) {
-  .WhoWeAre {
-    padding: 30px 16px;
-  }
-
-  .WhoWeAre-top {
-    gap: 80px;
-  }
-
-  .WhoWeAre-heading {
-    font-size: 22px;
-  }
-
-  .WhoWeAre-image {
-    height: 280px;
-  }
-
-  .WhoWeAre-card {
-    bottom: -70px;
-    padding: 16px;
-  }
-
-  .WhoWeAre-progressHeader {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .WhoWeAre-badge {
-    font-size: 11px;
-    padding: 5px 10px;
-  }
-
-  .WhoWeAre-progressLabel {
-    font-size: 11px;
-  }
-
-  .WhoWeAre-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .WhoWeAre-stats {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 24px;
-  }
-
-  .WhoWeAre-statValue {
-    font-size: 22px;
-  }
-
-  .WhoWeAre-statLabel {
-    font-size: 11px;
+  .blog-main {
+    padding: 40px 15px;
   }
 }
