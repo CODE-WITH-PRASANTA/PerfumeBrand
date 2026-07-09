@@ -8,28 +8,34 @@ import Contact from "./Pages/Contact/Contact";
 import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
+import Navbar from "./Pages/Navbar/Navbar";
+import Footer from "./Pages/Footer/Footer";
+import Wishlist from "./Pages/Wishlist/Wishlist";
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
 
-         <Route path="/login" element={<Login/>} />
+         <Route path="/account" element={<Login/>} />
          <Route path="/PerfumeWishlist" element={< PerfumeWishlist/>} />
          <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
 
 
-        <Route path="/about" element={<About />} />
+        <Route path="/about-us" element={<About />} />
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/Contact" element={<Contact />}/>
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
-        <Route path="/allperfume" element={<Allperfume />} />
+        <Route path="/all-perfumes" element={<Allperfume />} />
+        <Route path="/wishlist" element={<Wishlist />} />
 
       
       
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
