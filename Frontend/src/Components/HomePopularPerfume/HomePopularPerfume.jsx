@@ -1,26 +1,35 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
+
 import "./HomePopularPerfume.css";
 
-// Import your perfume images from your assets directory
-import perfumeImg1 from '../../assets/perfume1.webp';
-import perfumeImg2 from '../../assets/perfume2.webp';
-import perfumeImg3 from '../../assets/perfume3.webp';
-import perfumeImg4 from '../../assets/perfume4.webp';
-import perfumeImg5 from '../../assets/perfume5.webp';
-import perfumeImg6 from '../../assets/perfume6.webp';
-import perfumeImg7 from '../../assets/perfume7.webp';
-import perfumeImg8 from '../../assets/perfume8.webp';
-import perfumeImg9 from '../../assets/perfume9.webp';
-import perfumeImg10 from '../../assets/perfume10.webp';
+// 12 Images for 6 Products (1 Permanent, 1 Hover per product)
+import perfumeImg1 from "../../assets/perfume1.webp";
+import perfumeImg2 from "../../assets/perfume2.webp";
+import perfumeImg3 from "../../assets/perfume3.webp";
+import perfumeImg4 from "../../assets/perfume4.webp";
+import perfumeImg5 from "../../assets/perfume5.webp";
+import perfumeImg6 from "../../assets/perfume6.webp";
+import perfumeImg7 from "../../assets/perfume7.webp";
+import perfumeImg8 from "../../assets/perfume8.webp";
+import perfumeImg9 from "../../assets/perfume9.webp";
+import perfumeImg10 from "../../assets/perfume10.webp";
+import perfumeImg11 from "../../assets/perfume11.webp";
+import perfumeImg12 from "../../assets/perfume12.webp";
 
 const HomePopularPerfume = () => {
   const [isSectionHovered, setIsSectionHovered] = useState(false);
-  const [activeHoveredId, setActiveHoveredId] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null); 
+  const [activeHoverId, setActiveHoverId] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [favorites, setFavorites] = useState([]);
-  const carouselRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(4); // Dynamic track sizing
 
-  // Corrected product array matching your variables
+  // Modal Interactive States
+  const [modalQuantity, setModalQuantity] = useState(1);
+  const [selectedColor, setSelectedColor] = useState("Green");
+  const [hoveredColor, setHoveredColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState("100ML");
+
   const products = [
     {
       id: 1,
@@ -32,6 +41,7 @@ const HomePopularPerfume = () => {
       weight: "100ML",
       imgDefault: perfumeImg1,
       imgHover: perfumeImg2,
+      colors: ["Black", "Green", "Amber"],
     },
     {
       id: 2,
@@ -43,6 +53,7 @@ const HomePopularPerfume = () => {
       weight: "100ML",
       imgDefault: perfumeImg3,
       imgHover: perfumeImg4,
+      colors: ["Black", "Crimson", "Gold"],
     },
     {
       id: 3,
@@ -54,6 +65,7 @@ const HomePopularPerfume = () => {
       weight: "100ML",
       imgDefault: perfumeImg5,
       imgHover: perfumeImg6,
+      colors: ["Clear", "Bronze", "Plum"],
     },
     {
       id: 4,
@@ -65,25 +77,68 @@ const HomePopularPerfume = () => {
       weight: "100ML",
       imgDefault: perfumeImg7,
       imgHover: perfumeImg8,
+      colors: ["Rose Gold", "Silver", "Emerald"],
     },
     {
       id: 5,
-      name: "Signature Oud",
+      name: "Signature Oud Intense",
       price: "$120.00",
-      oldPrice: "$150.00",
+      oldPrice: "$145.00",
       rating: 5,
-      tag: "Save 20%",
+      tag: "New",
       weight: "100ML",
       imgDefault: perfumeImg9,
       imgHover: perfumeImg10,
+      colors: ["Midnight", "Onyx", "Sapphire"],
+    },
+    {
+      id: 6,
+      name: "Velvet Rose Elixir",
+      price: "$85.00",
+      oldPrice: "$110.00",
+      rating: 5,
+      tag: "Save 20%",
+      weight: "100ML",
+      imgDefault: perfumeImg11,
+      imgHover: perfumeImg12,
+      colors: ["Blush", "Burgundy", "Platinum"],
     }
   ];
 
-  const handleScroll = (direction) => {
-    if (carouselRef.current) {
-      const scrollAmount = direction === "left" ? -320 : 320;
-      carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  // Dynamic viewport tracking to fix slide translations perfectly
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setVisibleItems(1);
+      } else if (width <= 992) {
+        setVisibleItems(2);
+      } else if (width <= 1200) {
+        setVisibleItems(3);
+      } else {
+        setVisibleItems(4);
+      }
+    };
+
+    handleResize(); // Init on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Safely auto-adjust slide index if resizing leaves it out of bounds
+  useEffect(() => {
+    const maxPossibleIndex = Math.max(0, products.length - visibleItems);
+    if (currentIndex > maxPossibleIndex) {
+      setCurrentIndex(maxPossibleIndex);
     }
+  }, [visibleItems, currentIndex, products.length]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, products.length - visibleItems));
   };
 
   const toggleFavorite = (id) => {
@@ -92,8 +147,15 @@ const HomePopularPerfume = () => {
     );
   };
 
+  const openModal = (product) => {
+    setSelectedProduct(product);
+    setModalQuantity(1);
+    setSelectedColor(product.colors[0] || "Default");
+    setHoveredColor(null);
+    setSelectedSize("100ML");
+  };
+
   const handleFullDetailsRedirect = (productName) => {
-    // Navigate out to a completely unique layout view
     window.open(`/product-details?name=${encodeURIComponent(productName)}`, "_blank");
   };
 
@@ -109,72 +171,77 @@ const HomePopularPerfume = () => {
       </div>
 
       <div className="carouselContainer">
-        {/* Navigation Arrows displayed only when pointing cursor inside the container */}
-        {isSectionHovered && (
-          <button className="navArrow leftArrow" onClick={() => handleScroll("left")} aria-label="Previous image">
+        {/* Left Arrow Button */}
+        {((isSectionHovered && currentIndex > 0) || (window.innerWidth <= 768 && currentIndex > 0)) && (
+          <button className="navArrow leftArrow" onClick={handlePrev} aria-label="Previous">
             ‹
           </button>
         )}
 
-        <div className="carouselTrack" ref={carouselRef}>
-          {products.map((product) => (
-            <div 
-              key={product.id} 
-              className="productCard"
-              onMouseEnter={() => setActiveHoveredId(product.id)}
-              onMouseLeave={() => setActiveHoveredId(null)}
-            >
-              <div className="imageContainer">
-                {product.tag && (
-                  <span className={`statusTag ${product.tag.toLowerCase().replace(" ", "")}`}>
-                    {product.tag}
-                  </span>
-                )}
-                
-                {/* Dynamically swap asset path configurations when individual cards are focused */}
-                <img
-                  src={activeHoveredId === product.id ? product.imgHover : product.imgDefault}
-                  alt={product.name}
-                  className="perfumeImage"
-                />
+        <div className="carouselViewport">
+          <div 
+            className="carouselTrack" 
+            style={{ transform: `translateX(-${currentIndex * (100 / visibleItems)}%)` }}
+          >
+            {products.map((product) => (
+              <div 
+                key={product.id} 
+                className="productCard"
+                onMouseEnter={() => setActiveHoverId(product.id)}
+                onMouseLeave={() => setActiveHoverId(null)}
+              >
+                <div className="imageContainer">
+                  {product.tag && (
+                    <span className={`statusTag ${product.tag.toLowerCase().replace(" ", "").replace("%", "")}`}>
+                      {product.tag}
+                    </span>
+                  )}
+                  
+                  <img
+                    src={activeHoverId === product.id ? product.imgHover : product.imgDefault}
+                    alt={product.name}
+                    className="perfumeImage"
+                  />
 
-                {/* Floating Action Menu Layer */}
-                {activeHoveredId === product.id && (
-                  <div className="floatingActionMenu">
-                    <button 
-                      className={`actionIconButton ${favorites.includes(product.id) ? "activeHeart" : ""}`}
-                      onClick={() => toggleFavorite(product.id)}
-                      title="Add to wishlist"
-                    >
-                      ♥
-                    </button>
-                    <button className="actionIconButton" onClick={() => setSelectedProduct(product)} title="Quick View">
-                      👁
-                    </button>
-                    <button className="actionIconButton" onClick={() => setSelectedProduct(product)} title="Add to Cart">
-                      🛒
-                    </button>
+                  {/* Buttons appear on hover (always display on mobile if active item) */}
+                  {(activeHoverId === product.id || window.innerWidth <= 768) && (
+                    <div className="floatingActionMenu">
+                      <button 
+                        className={`actionIconButton ${favorites.includes(product.id) ? "activeHeart" : ""}`}
+                        onClick={() => toggleFavorite(product.id)}
+                      >
+                        {favorites.includes(product.id) ? "♥" : "♡"}
+                      </button>
+                      <button className="actionIconButton" onClick={() => openModal(product)}>
+                        👁
+                      </button>
+                      <button className="actionIconButton" onClick={() => openModal(product)}>
+                        🛒
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <div className="productDetails">
+                  <div className="starRating">
+                    {"★".repeat(product.rating)}
+                    {"☆".repeat(5 - product.rating)}
                   </div>
-                )}
-              </div>
-
-              <div className="productDetails">
-                <div className="starRating">
-                  {"★".repeat(product.rating)}
-                  {"☆".repeat(5 - product.rating)}
-                </div>
-                <h3 className="productName">{product.name}</h3>
-                <div className="priceWrapper">
-                  <span className="currentPrice">{product.price}</span>
-                  {product.oldPrice && <span className="oldPrice">{product.oldPrice}</span>}
+                  <h3 className="productName">{product.name}</h3>
+                  <div className="priceWrapper">
+                    <span className="currentPrice">{product.price}</span>
+                    {product.oldPrice && <span className="oldPrice">{product.oldPrice}</span>}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {isSectionHovered && (
-          <button className="navArrow rightArrow" onClick={() => handleScroll("right")} aria-label="Next image">
+        {/* Right Arrow Button */}
+        {((isSectionHovered && currentIndex < products.length - visibleItems) || 
+          (window.innerWidth <= 768 && currentIndex < products.length - visibleItems)) && (
+          <button className="navArrow rightArrow" onClick={handleNext} aria-label="Next">
             ›
           </button>
         )}
@@ -184,7 +251,7 @@ const HomePopularPerfume = () => {
         <button className="viewAllButton">VIEW ALL</button>
       </div>
 
-      {/* Elegant Modal Backdrop and Overlay Windows */}
+      {/* Quick View Modal Popup */}
       {selectedProduct && (
         <div className="modalBackdrop" onClick={() => setSelectedProduct(null)}>
           <div className="modalContentLayout" onClick={(e) => e.stopPropagation()}>
@@ -197,22 +264,62 @@ const HomePopularPerfume = () => {
               
               <div className="modalTextPane">
                 <h2 className="modalProductName">{selectedProduct.name}</h2>
+                
                 <div className="modalPricingRow">
                   <span className="modalCurrentPrice">{selectedProduct.price}</span>
                   {selectedProduct.oldPrice && <span className="modalOldPrice">{selectedProduct.oldPrice}</span>}
-                  {selectedProduct.tag && <span className="modalBadge">{selectedProduct.tag}</span>}
+                  {selectedProduct.tag && (
+                    <span className="modalInlineBadge statusSoldout">{selectedProduct.tag}</span>
+                  )}
                 </div>
                 
-                <p className="modalMetaLabel">Color: <span className="metaValue">Default Classic</span></p>
-                <p className="modalMetaLabel">Weight: <span className="metaValue">{selectedProduct.weight}</span></p>
+                <div className="modalMetaLabel">
+                  Color: <span className="dynamicColorText">{hoveredColor || selectedColor}</span>
+                </div>
+                
+                <div className="colorSwatchesGroup">
+                  {selectedProduct.colors.map((color, index) => (
+                    <button
+                      key={index}
+                      className={`colorSwatchVariant ${selectedColor === color ? "activeColor" : ""}`}
+                      onClick={() => setSelectedColor(color)}
+                      onMouseEnter={() => setHoveredColor(color)}
+                      onMouseLeave={() => setHoveredColor(null)}
+                    >
+                      <span className="swatchMiniIcon" style={{ filter: `hue-rotate(${index * 120}deg)` }}>🧴</span>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="modalMetaLabel" style={{ marginTop: "15px" }}>
+                  Weight: <span className="metaValue">{selectedSize}</span>
+                </div>
+
+                <div className="sizeSelectorGroup">
+                  {["100ML", "200ML", "500ML"].map((size) => (
+                    <button
+                      key={size}
+                      className={`sizePillButton ${selectedSize === size ? "activeSize" : ""}`}
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
                 
                 <div className="quantitySelectorRow">
                   <div className="qtyCounter">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button onClick={() => setModalQuantity(q => Math.max(1, q - 1))}>-</button>
+                    <span>{modalQuantity}</span>
+                    <button onClick={() => setModalQuantity(q => q + 1)}>+</button>
                   </div>
-                  <button className="addToCartSubmitBtn">ADD TO CART</button>
+                  
+                  <button 
+                    className={`addToCartSubmitBtn ${selectedProduct.tag === "Sold out" ? "disabledBtn" : ""}`}
+                    disabled={selectedProduct.tag === "Sold out"}
+                  >
+                    {selectedProduct.tag === "Sold out" ? "SOLD OUT" : "ADD TO CART"}
+                  </button>
                 </div>
 
                 <button className="buyItNowBtn">BUY IT NOW</button>

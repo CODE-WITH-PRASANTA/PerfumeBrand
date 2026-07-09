@@ -27,7 +27,7 @@ function App() {
          <Route path="/wishlist" element={< PerfumeWishlist/>} />
          <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
          <Route path="/limited-edition" element={<LimitedEdition/>} />
-         <Route path="/home" element={<Home/>} />
+         <Route path="/" element={<Home/>} />
         
 
 

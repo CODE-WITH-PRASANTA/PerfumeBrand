@@ -1,9 +1,9 @@
-/* Core Layout Structure */
+/* Layout Wrapper setup */
 .popularPerfumeSection {
   background-color: #ffffff;
   padding: 60px 40px;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow: hidden;
 }
 
@@ -14,9 +14,10 @@
 
 .sectionTitle {
   font-family: 'Playfair Display', 'Georgia', serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: #1a1a1a;
   margin: 0 0 10px 0;
+  font-weight: 600;
 }
 
 .sectionSubtitle {
@@ -24,7 +25,7 @@
   font-size: 0.95rem;
 }
 
-/* Horizontal Scrolling Container Layout */
+/* CAROUSEL SETUP */
 .carouselContainer {
   position: relative;
   width: 100%;
@@ -32,65 +33,65 @@
   align-items: center;
 }
 
+.carouselViewport {
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
 .carouselTrack {
   display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
   width: 100%;
-  padding: 10px 0;
-  scrollbar-width: none; /* Hides raw interface bars on Firefox */
 }
 
-.carouselTrack::-webkit-scrollbar {
-  display: none; /* Hides layout tracks on Chrome/Safari */
-}
-
-/* Product Card Design Styles */
+/* Base layouts dynamically scale */
 .productCard {
-  min-width: 280px;
-  flex: 0 0 auto;
-  background: #ffffff;
-  border-radius: 4px;
+  flex: 0 0 25%;
+  width: 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  padding: 0 12px;
   display: flex;
   flex-direction: column;
 }
 
 .imageContainer {
   position: relative;
-  background-color: #fcf4f4; /* Subtle blush color base matching reference frames */
-  border-radius: 8px;
-  padding: 40px 20px;
+  background-color: #f9ebe7; 
+  border-radius: 12px;       
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
+  height: 390px;             
   overflow: hidden;
+  cursor: pointer;
 }
 
 .perfumeImage {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.4s ease;
+  height: 100%;              
+  object-fit: contain;       
+  transition: opacity 0.2s ease-in-out;
 }
 
-/* Status Tags styling rules */
+/* Badges */
 .statusTag {
   position: absolute;
   top: 15px;
   left: 15px;
-  color: #fff;
+  color: #ffffff;
   font-size: 0.75rem;
   padding: 4px 12px;
   border-radius: 20px;
   font-weight: 500;
   z-index: 2;
 }
-.statusTag.save50\% { background-color: #53354a; }
+.statusTag.save50 { background-color: #53354a; }
 .statusTag.soldout { background-color: #222222; }
+.statusTag.new { background-color: #704f4f; }
 
-/* Floating Functional Layer Elements */
+/* Floating action items overlay */
 .floatingActionMenu {
   position: absolute;
   right: 15px;
@@ -99,7 +100,12 @@
   flex-direction: column;
   gap: 8px;
   z-index: 3;
-  animation: fadeInRight 0.25s ease forwards;
+  animation: fadeInRight 0.2s forwards ease-out;
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .actionIconButton {
@@ -112,7 +118,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   color: #333333;
   font-size: 1.1rem;
   transition: all 0.2s ease;
@@ -127,7 +133,7 @@
   color: #e74c3c;
 }
 
-/* Metadata Text Elements */
+/* Product Info Section */
 .productDetails {
   padding: 15px 5px;
   text-align: center;
@@ -144,6 +150,7 @@
   font-size: 1.1rem;
   margin: 0 0 6px 0;
   color: #1a1a1a;
+  font-weight: 600;
 }
 
 .priceWrapper {
@@ -163,7 +170,7 @@
   text-decoration: line-through;
 }
 
-/* Absolute Position Slider Buttons */
+/* Arrows Overlay layout */
 .navArrow {
   position: absolute;
   background: #53354a;
@@ -176,13 +183,16 @@
   line-height: 40px;
   cursor: pointer;
   z-index: 10;
-  top: 40%;
+  top: 45%;
   transform: translateY(-50%);
-  transition: opacity 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.leftArrow { left: 10px; }
-.rightArrow { right: 10px; }
+.leftArrow { left: -15px; }
+.rightArrow { right: -15px; }
 
 .footerActionArea {
   display: flex;
@@ -194,7 +204,7 @@
   background-color: #53354a;
   color: white;
   border: none;
-  padding: 12px 36px;
+  padding: 12px 40px;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -202,7 +212,7 @@
   cursor: pointer;
 }
 
-/* Quick View Premium Modal Architecture */
+/* Modal setup rules */
 .modalBackdrop {
   position: fixed;
   top: 0;
@@ -213,17 +223,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .modalContentLayout {
   background: white;
-  width: 850px;
-  max-width: 90%;
-  border-radius: 8px;
+  width: 860px;
+  max-width: 92%;
+  border-radius: 4px;
   position: relative;
-  padding: 30px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  padding: 35px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .closeModalButton {
@@ -234,9 +245,10 @@
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .modalSplitView {
@@ -245,18 +257,19 @@
 }
 
 .modalImagePane {
-  flex: 1;
-  background-color: #fcf4f4;
-  border-radius: 6px;
+  flex: 1.1;
+  background-color: #f9ebe7;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  height: 450px;
 }
 
 .modalImagePane img {
   max-width: 100%;
-  max-height: 380px;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -264,12 +277,14 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .modalProductName {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  margin: 0 0 15px 0;
+  font-size: 2rem;
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
 }
 
 .modalPricingRow {
@@ -281,38 +296,88 @@
 
 .modalCurrentPrice {
   color: #53354a;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .modalOldPrice {
   color: #999999;
   text-decoration: line-through;
+  font-size: 1.1rem;
 }
 
-.modalBadge {
-  background: #222;
-  color: white;
-  padding: 2px 8px;
+.modalInlineBadge {
   font-size: 0.75rem;
-  border-radius: 4px;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
 }
+.modalInlineBadge.statusSoldout { background-color: #222222; }
 
 .modalMetaLabel {
-  font-size: 0.9rem;
-  color: #555555;
-  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin: 10px 0 8px 0;
+  font-weight: 500;
 }
 
-.metaValue {
-  color: #000;
-  font-weight: 500;
+.dynamicColorText {
+  color: #666666;
+  font-weight: 600;
+}
+
+.colorSwatchesGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.colorSwatchVariant {
+  border: 1px solid #e0e0e0;
+  padding: 6px;
+  border-radius: 4px;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+}
+
+.colorSwatchVariant:hover, .colorSwatchVariant.activeColor {
+  border-color: #53354a;
+  background-color: #f9ebe7;
+}
+
+.swatchMiniIcon { font-size: 1.2rem; }
+
+.sizeSelectorGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.sizePillButton {
+  border: 1px solid #cccccc;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.sizePillButton.activeSize {
+  background-color: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
 }
 
 .quantitySelectorRow {
   display: flex;
   gap: 15px;
-  margin: 25px 0 12px 0;
+  margin-bottom: 15px;
 }
 
 .qtyCounter {
@@ -320,24 +385,27 @@
   border: 1px solid #cccccc;
   align-items: center;
   border-radius: 4px;
+  height: 48px;
 }
 
 .qtyCounter button {
   background: none;
   border: none;
-  width: 35px;
+  width: 40px;
   height: 100%;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .qtyCounter span {
-  padding: 0 10px;
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .addToCartSubmitBtn, .buyItNowBtn {
   border: none;
-  padding: 14px;
+  height: 48px;
   border-radius: 4px;
   font-weight: 600;
   cursor: pointer;
@@ -345,15 +413,21 @@
 }
 
 .addToCartSubmitBtn {
-  background-color: #b0a3b0;
+  background-color: #53354a;
   color: white;
   flex: 1;
 }
 
+.disabledBtn {
+  background-color: #bfaec2 !important;
+  cursor: not-allowed;
+}
+
 .buyItNowBtn {
-  background-color: #53354a;
+  background-color: #1a1a1a;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 .fullDetailsLink {
@@ -363,18 +437,103 @@
   text-decoration: underline;
   cursor: pointer;
   align-self: flex-start;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  padding: 0;
 }
 
-/* Functional Transitions */
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(10px); }
-  to { opacity: 1; transform: translateX(0); }
+/* ===========================
+   LARGE LAPTOP RESPONSIVENESS
+=========================== */
+@media (max-width: 1400px) {
+  .popularPerfumeSection { padding: 50px 30px; }
+  .imageContainer { height: 340px; }
 }
 
-/* Responsive Adaptive Sizing */
+/* ===========================
+   LAPTOP (1200px -> 3 Cards)
+=========================== */
+@media (max-width: 1200px) {
+  .productCard {
+    flex: 0 0 33.333%;
+    width: 33.333%;
+    max-width: 33.333%;
+  }
+  .imageContainer { height: 320px; }
+  .sectionTitle { font-size: 2rem; }
+}
+
+/* ===========================
+   TABLET (992px -> 2 Cards)
+=========================== */
+@media (max-width: 992px) {
+  .popularPerfumeSection { padding: 50px 20px; }
+  .productCard {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+  }
+  .imageContainer { height: 300px; }
+  .sectionTitle { font-size: 1.9rem; }
+  
+  .modalContentLayout {
+    width: 95%;
+    padding: 25px;
+  }
+  .modalSplitView {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .modalImagePane { height: 320px; }
+  .modalProductName { font-size: 1.7rem; }
+  .quantitySelectorRow { flex-direction: column; }
+  .addToCartSubmitBtn, .buyItNowBtn { width: 100%; }
+}
+
+/* ===========================
+   MOBILE (768px -> 1 Card)
+=========================== */
 @media (max-width: 768px) {
-  .modalSplitView { flex-direction: column; }
-  .popularPerfumeSection { padding: 40px 16px; }
-  .navArrow { display: none !important; } /* Fallback to natural touch scrolling mechanics on mobile viewports */
+  .popularPerfumeSection { padding: 40px 15px; }
+  .sectionTitle { font-size: 1.8rem; }
+  .sectionSubtitle { font-size: 0.9rem; }
+  
+  .productCard {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .imageContainer { height: 320px; }
+  .productName { font-size: 1rem; }
+  .priceWrapper { flex-direction: row; gap: 10px; }
+  
+  .navArrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+  .leftArrow { left: 5px; }
+  .rightArrow { right: 5px; }
+  .viewAllButton { width: 100%; max-width: 280px; }
+  
+  .modalContentLayout {
+    width: 95%;
+    padding: 20px;
+  }
+  .modalImagePane { height: 260px; }
+  .modalProductName { font-size: 1.5rem; }
+}
+
+/* ===========================
+   SMALL MOBILE (576px)
+=========================== */
+@media (max-width: 576px) {
+  .popularPerfumeSection { padding: 30px 12px; }
+  .sectionTitle { font-size: 1.6rem; }
+  .sectionSubtitle { font-size: 0.85rem; }
+  .imageContainer { height: 260px; }
+  .productDetails { padding: 12px 0; }
+  
+  .modalContentLayout { padding: 15px; }
+  .modalImagePane { height: 220px; }
 }
