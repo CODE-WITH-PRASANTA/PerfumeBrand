@@ -8,6 +8,7 @@ import Contact from "./Pages/Contact/Contact";
 import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
+import PerfumeLimitedEdition from "./Components/PerfumeLimitedEdition/PerfumeLimitedEdition";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
          <Route path="/login" element={<Login/>} />
          <Route path="/PerfumeWishlist" element={< PerfumeWishlist/>} />
          <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
+         <Route path="/PerfumeLimitedEdition" element={<PerfumeLimitedEdition/>} />
 
 
         <Route path="/about" element={<About />} />
