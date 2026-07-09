@@ -1,0 +1,153 @@
+/* Background dimmed back-shadow layout overlay */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45); /* Blurs out behind the slider panel */
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Sliding Right Hand Sidebar Panel Container */
+.cart-container {
+  width: 100%;
+  max-width: 440px; /* Exact high-end boutique scale framework */
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Header layout container block rules */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.cart-header-title {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.cart-close-button {
+  background: none;
+  border: none;
+  color: #111111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.cart-close-button:hover {
+  opacity: 0.6;
+}
+
+/* Main inner content body layout flow */
+.cart-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 30px;
+}
+
+.cart-empty-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-40px); /* Centers balancing visually against the header */
+}
+
+/* Structural Icon elements */
+.cart-icon-container {
+  position: relative;
+  color: #d1d5db; /* Clean light gray tone structure matching graphic view */
+  margin-bottom: 32px;
+}
+
+.cart-svg-box {
+  width: 90px;
+  height: 90px;
+  display: block;
+}
+
+/* Ambient dynamic sparkles */
+.cart-sparkle {
+  position: absolute;
+  font-size: 13px;
+  color: #cbd5e1;
+  user-select: none;
+}
+
+.particle-cross {
+  top: 8px;
+  right: -2px;
+}
+
+.particle-circle {
+  top: -6px;
+  left: 36px;
+  font-size: 11px;
+}
+
+.particle-plus {
+  bottom: 24px;
+  left: -8px;
+}
+
+/* Typography styles matching image perfectly */
+.cart-title {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.2px;
+}
+
+/* Text link anchor design */
+.cart-continue-link {
+  font-family: "Inter", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #111111;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #111111; /* Clean underline matching layout */
+  transition: opacity 0.2s ease;
+}
+
+.cart-continue-link:hover {
+  opacity: 0.7;
+}
+
+/* Fully responsive mobile viewport fallback optimizations */
+@media (max-width: 480px) {
+  .cart-container {
+    max-width: 100%; /* Spans full horizontal window width on mobile devices */
+  }
+  
+  .cart-header {
+    padding: 20px 24px;
+  }
+  
+  .cart-title {
+    font-size: 21px;
+  }
+}

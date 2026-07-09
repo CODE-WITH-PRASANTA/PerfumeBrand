@@ -1,0 +1,355 @@
+/* ==========================================================================
+   1. LAYOUT SECTION CONFIGURATIONS
+   ========================================================================== */
+.lookbook-section-container {
+  max-width: 1240px;
+  margin: 60px auto;
+  padding: 0 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+.lookbook-header-block {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.lookbook-main-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+  color: #1c1c1c;
+}
+
+.lookbook-subtitle {
+  font-size: 14px;
+  color: #5c5c5c;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. LOOKBOOK CORE GRID MAPPING
+   ========================================================================== */
+.lookbook-grid-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   3. HERO LOOKBOOK BANNER & DOT HOTSPOTS
+   ========================================================================== */
+.lookbook-hero-banner-pane {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  background-color: #fce4ec;
+}
+
+.lookbook-banner-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hotspots Mechanics Styles */
+.lookbook-hotspot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 5;
+}
+
+.lookbook-hotspot:hover {
+  transform: scale(1.2);
+}
+
+.hotspot-inner-core {
+  width: 10px;
+  height: 10px;
+  background-color: #311b92; /* Deep purple color matching image reference exactly */
+  border-radius: 50%;
+}
+
+/* Exact Coordinates Matching Image layout placements */
+.hotspot-one {
+  bottom: 22%;
+  left: 17%;
+}
+
+.hotspot-two {
+  top: 51%;
+  left: 44%;
+}
+
+.hotspot-three {
+  bottom: 37%;
+  right: 21%;
+}
+
+/* ==========================================================================
+   4. PRODUCT CAROUSEL TRACK TRACKS
+   ========================================================================== */
+.lookbook-carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.lookbook-products-display-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.lookbook-product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.lookbook-product-media-box {
+  position: relative;
+  background-color: #fdf5f5; /* Ultra soft pinkish-white tint match */
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lookbook-product-image {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Badges Capsule Styler */
+.lookbook-badge-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #ffffff;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.lookbook-badge-pill.discount {
+  background-color: #4a148c; /* Dark refined palette color choice */
+}
+
+.lookbook-badge-pill.soldout {
+  background-color: #212121;
+}
+
+/* ==========================================================================
+   5. HOVER ACTION OVERLAY PANEL (Image 4 Context)
+   ========================================================================== */
+.lookbook-card-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 3;
+}
+
+/* Display overlay on card container hover */
+.lookbook-product-card:hover .lookbook-card-hover-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lookbook-hover-action-circular-btn {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.lookbook-hover-action-circular-btn:hover {
+  background-color: #1a1a1a;
+}
+
+.lookbook-hover-action-circular-btn:hover svg {
+  color: #ffffff;
+}
+
+.lookbook-hover-action-circular-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+/* ==========================================================================
+   6. METADATA TEXT AND PRICING
+   ========================================================================== */
+.lookbook-product-meta-block {
+  padding: 16px 4px 0 4px;
+  text-align: center;
+}
+
+.lookbook-stars-row {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.lookbook-star {
+  color: #212121;
+  font-size: 11px;
+}
+
+.lookbook-item-title-typography {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #1c1c1c;
+}
+
+.lookbook-pricing-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.lookbook-price-active {
+  font-weight: 700;
+  color: #4a148c;
+}
+
+.lookbook-price-strikethrough {
+  color: #9e9e9e;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   7. PAGINATION MECHANICS (Image 5 precise replication)
+   ========================================================================== */
+.lookbook-pagination-controls-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.lookbook-pagination-dot-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-outer-ring {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #9e9e9e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+}
+
+.dot-inner-center {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+/* Active State Styles */
+.lookbook-pagination-dot-btn.dot-active .dot-outer-ring {
+  border-color: #1a1a1a;
+}
+
+.lookbook-pagination-dot-btn.dot-active .dot-inner-center {
+  background-color: #1a1a1a;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES ALL DEVICES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .lookbook-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .lookbook-hero-banner-pane {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .lookbook-main-title {
+    font-size: 26px;
+  }
+
+  .lookbook-products-display-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .lookbook-product-media-box {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .lookbook-hotspot {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .hotspot-inner-core {
+    width: 8px;
+    height: 8px;
+  }
+}
