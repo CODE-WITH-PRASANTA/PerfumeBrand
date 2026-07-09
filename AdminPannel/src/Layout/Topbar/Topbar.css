@@ -1,13 +1,15 @@
 .topbar {
   height: 65px;
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  /* Distinct, vibrant light-colored palette layout */
+  background-color: var(--bg-white, #ffffff);
+  border-bottom: 1px solid var(--border-light, #e2e8f0);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  z-index: 4;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.02);
+  position: relative;
+  z-index: 9;
 }
 
 .topbar__left {
@@ -20,49 +22,166 @@
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: var(--primary-blue);
+  color: var(--accent-blue, #2563eb);
   cursor: pointer;
   padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
 }
 
 .topbar__toggle-btn:hover {
-  background-color: var(--bg-light-blue);
-}
-
-.topbar__toggle-btn:active {
-  transform: scale(0.95);
+  background-color: var(--highlight-blue, #eff6ff);
 }
 
 .topbar__brand {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--primary-blue);
-  letter-spacing: 0.5px;
+  color: var(--text-dark, #1e293b);
+  letter-spacing: -0.3px;
 }
 
-.topbar__right {
+/* Profile Action Layout Elements */
+.topbar__profile-container {
+  position: relative;
+}
+
+.topbar__profile-trigger {
   display: flex;
   align-items: center;
+  background: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.topbar__profile {
+.topbar__profile-trigger:hover,
+.topbar__profile-trigger--active {
+  background-color: var(--highlight-blue, #eff6ff);
+  border-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Circular Avatar Initials Badge */
+.topbar__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+.topbar__user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10px 0 12px;
+}
+
+.topbar__username {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark, #1e293b);
+}
+
+.topbar__role {
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+}
+
+.topbar__arrow {
+  font-size: 0.9rem;
+  color: var(--text-muted, #64748b);
+  transition: transform 0.2s ease;
+}
+
+.topbar__arrow--rotate {
+  transform: rotate(180deg);
+  color: var(--accent-blue, #2563eb);
+}
+
+/* Floating Action Dropdown Menu Container */
+.topbar__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  animation: topbarDropdownSlide 0.2s ease-out;
+}
+
+.topbar__dropdown-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.88rem;
   font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-dark, #1e293b);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
   cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: background-color 0.2s;
+  transition: all 0.15s ease;
 }
 
-.topbar__profile:hover {
-  background-color: var(--bg-light-blue);
+.topbar__dropdown-item:hover {
+  background-color: var(--highlight-blue, #eff6ff);
+  color: var(--accent-blue, #2563eb);
+}
+
+.topbar__dropdown-icon {
+  font-size: 1.05rem;
+}
+
+.topbar__dropdown-divider {
+  border: none;
+  border-top: 1px solid var(--border-light, #e2e8f0);
+  margin: 6px 0;
+}
+
+/* Dropdown Logout Action Variant */
+.topbar__dropdown-item--logout {
+  color: #ef4444; /* Clean Red Theme */
+}
+
+.topbar__dropdown-item--logout:hover {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .topbar__user-info {
+    display: none; /* Hide textual context details on tight screens */
+  }
+}
+
+@keyframes topbarDropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
