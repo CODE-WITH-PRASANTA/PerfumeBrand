@@ -1,0 +1,272 @@
+:root {
+  /* This exactly matches the background color inside your perfume images to make it one solid box */
+  --bg-card-cream: #fbf1f0; 
+  --theme-plum-light: #523249;
+  --theme-plum-dark: #221a1f;
+  --text-dark: #1a1a1a;
+  --text-muted: #7e7577;
+  --star-plum: #523249;
+  --star-gray: #dcd6d8;
+}
+
+.sale-section-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-dark);
+}
+
+.sale-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sale-section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.slider-arrow-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-btn.btn-left {
+  background-color: var(--theme-plum-light);
+  color: #ffffff;
+}
+
+.arrow-btn.btn-right {
+  background-color: var(--theme-plum-dark);
+  color: #ffffff;
+}
+
+.arrow-btn.btn-left:hover {
+  background-color: var(--theme-plum-dark);
+  transform: scale(1.05);
+}
+
+.arrow-btn.btn-right:hover {
+  background-color: var(--theme-plum-light);
+  transform: scale(1.05);
+}
+
+.arrow-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Horizontal Slider Layout */
+.slider-scroll-viewport {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(25% - 15px);
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 15px;
+  scrollbar-width: none; 
+}
+
+.slider-scroll-viewport::-webkit-scrollbar {
+  display: none; 
+}
+
+.sale-product-card {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-media-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-media-box {
+  background-color: var(--bg-card-cream);
+  border-radius: 8px;
+  position: relative;
+  aspect-ratio: 1 / 1.12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sale-product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensures image fills container space perfectly without gaps */
+  transition: opacity 0.3s ease;
+}
+
+.sale-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background-color: var(--theme-plum-light);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.sale-badge.sold-out {
+  background-color: #1a1a1a;
+}
+
+/* ==========================================================================
+   UPDATED: VERTICAL STACK OVERLAY ACTIONS (Top-Right Corner)
+   ========================================================================== */
+.media-overlay-actions {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  flex-direction: column; /* Stacks icons vertically */
+  gap: 8px;
+  z-index: 4;
+  opacity: 0;
+  transform: translateX(12px); /* Slides in cleanly from the right side */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reveal action stack when hovering over the card */
+.sale-product-card:hover .media-overlay-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.icon-action-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: var(--text-dark);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.icon-action-circle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-action-circle:hover {
+  background-color: var(--theme-plum-light);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Metadata Text Styles */
+.product-info-box {
+  padding-top: 14px;
+  text-align: center;
+}
+
+.star-rating-row {
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.star-symbol {
+  font-size: 14px;
+}
+
+.filled-star {
+  color: var(--star-plum);
+}
+
+.empty-star {
+  color: var(--star-gray);
+}
+
+.sale-product-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+}
+
+.sale-product-title a {
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: color 0.15s ease;
+}
+
+.sale-product-title a:hover {
+  color: var(--theme-plum-light);
+}
+
+.sale-price-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.current-sale-price {
+  font-weight: 700;
+  color: var(--theme-plum-light);
+}
+
+.slashed-sale-price {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .slider-scroll-viewport {
+    grid-auto-columns: calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-scroll-viewport {
+    grid-auto-columns: calc(50% - 10px);
+  }
+  .sale-section-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-scroll-viewport {
+    grid-auto-columns: 85%;
+    gap: 16px;
+  }
+  .media-overlay-actions {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
