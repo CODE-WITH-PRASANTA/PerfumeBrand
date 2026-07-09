@@ -8,9 +8,12 @@ import Contact from "./Pages/Contact/Contact";
 import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
+import LimitedEdition from "./Pages/LimitedEdition/LimitedEdition";
+
 import Navbar from "./Pages/Navbar/Navbar";
 import Footer from "./Pages/Footer/Footer";
 import Wishlist from "./Pages/Wishlist/Wishlist";
+import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 
 
@@ -21,8 +24,11 @@ function App() {
       <Routes>
 
          <Route path="/account" element={<Login/>} />
-         <Route path="/PerfumeWishlist" element={< PerfumeWishlist/>} />
+         <Route path="/wishlist" element={< PerfumeWishlist/>} />
          <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
+         <Route path="/limited-edition" element={<LimitedEdition/>} />
+         <Route path="/home" element={<Home/>} />
+        
 
 
         <Route path="/about-us" element={<About />} />
@@ -31,6 +37,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/all-perfumes" element={<Allperfume />} />
+       
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
 
