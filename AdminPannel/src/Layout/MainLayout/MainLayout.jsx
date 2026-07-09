@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom'; // Import Outlet
 import Sidebar from '../Sidebar/Sidebar';
 import Topbar from '../Topbar/Topbar';
 import './MainLayout.css';
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const handleSidebarToggle = () => {
     if (window.innerWidth <= 768) {
+      // Toggle side-drawer behavior for smaller mobile touch displays
       setIsMobileOpen(!isMobileOpen);
     } else {
+      // Collapse desktop view to mini-icons mode
       setIsCollapsed(!isCollapsed);
     }
   };
 
-  // Safe window-resizing cleanup cycle 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -39,12 +41,11 @@ const MainLayout = ({ children }) => {
       <div className="main-layout__content-area">
         <Topbar onToggleSidebar={handleSidebarToggle} />
         <main className="main-layout__page-content">
-          {children ? children : (
-            <div>
-              <h2>Perfume Brand Admin Overview</h2>
-              <p>Welcome back! Select an option from the sidebar panel to begin tracking operations.</p>
-            </div>
-          )}
+          {/* 
+            Replacing children with Outlet ensures react-router-dom knows 
+            exactly where to render the targeted view components.
+          */}
+          <Outlet /> 
         </main>
       </div>
     </div>
