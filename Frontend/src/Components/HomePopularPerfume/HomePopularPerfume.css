@@ -1,0 +1,380 @@
+/* Core Layout Structure */
+.popularPerfumeSection {
+  background-color: #ffffff;
+  padding: 60px 40px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+}
+
+.sectionSubtitle {
+  color: #666666;
+  font-size: 0.95rem;
+}
+
+/* Horizontal Scrolling Container Layout */
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px 0;
+  scrollbar-width: none; /* Hides raw interface bars on Firefox */
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none; /* Hides layout tracks on Chrome/Safari */
+}
+
+/* Product Card Design Styles */
+.productCard {
+  min-width: 280px;
+  flex: 0 0 auto;
+  background: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  position: relative;
+  background-color: #fcf4f4; /* Subtle blush color base matching reference frames */
+  border-radius: 8px;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
+  overflow: hidden;
+}
+
+.perfumeImage {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+/* Status Tags styling rules */
+.statusTag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  z-index: 2;
+}
+.statusTag.save50\% { background-color: #53354a; }
+.statusTag.soldout { background-color: #222222; }
+
+/* Floating Functional Layer Elements */
+.floatingActionMenu {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 3;
+  animation: fadeInRight 0.25s ease forwards;
+}
+
+.actionIconButton {
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  color: #333333;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.actionIconButton:hover {
+  background-color: #53354a;
+  color: #ffffff;
+}
+
+.actionIconButton.activeHeart {
+  color: #e74c3c;
+}
+
+/* Metadata Text Elements */
+.productDetails {
+  padding: 15px 5px;
+  text-align: center;
+}
+
+.starRating {
+  color: #53354a;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.productName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin: 0 0 6px 0;
+  color: #1a1a1a;
+}
+
+.priceWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.currentPrice {
+  color: #53354a;
+  font-weight: 600;
+}
+
+.oldPrice {
+  color: #999999;
+  text-decoration: line-through;
+}
+
+/* Absolute Position Slider Buttons */
+.navArrow {
+  position: absolute;
+  background: #53354a;
+  color: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  top: 40%;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.leftArrow { left: 10px; }
+.rightArrow { right: 10px; }
+
+.footerActionArea {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.viewAllButton {
+  background-color: #53354a;
+  color: white;
+  border: none;
+  padding: 12px 36px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Quick View Premium Modal Architecture */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContentLayout {
+  background: white;
+  width: 850px;
+  max-width: 90%;
+  border-radius: 8px;
+  position: relative;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.closeModalButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #53354a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.modalSplitView {
+  display: flex;
+  gap: 40px;
+}
+
+.modalImagePane {
+  flex: 1;
+  background-color: #fcf4f4;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modalImagePane img {
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+.modalTextPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalProductName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+}
+
+.modalPricingRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.modalCurrentPrice {
+  color: #53354a;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.modalOldPrice {
+  color: #999999;
+  text-decoration: line-through;
+}
+
+.modalBadge {
+  background: #222;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.modalMetaLabel {
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 5px 0;
+}
+
+.metaValue {
+  color: #000;
+  font-weight: 500;
+}
+
+.quantitySelectorRow {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0 12px 0;
+}
+
+.qtyCounter {
+  display: flex;
+  border: 1px solid #cccccc;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.qtyCounter button {
+  background: none;
+  border: none;
+  width: 35px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.qtyCounter span {
+  padding: 0 10px;
+}
+
+.addToCartSubmitBtn, .buyItNowBtn {
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.addToCartSubmitBtn {
+  background-color: #b0a3b0;
+  color: white;
+  flex: 1;
+}
+
+.buyItNowBtn {
+  background-color: #53354a;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.fullDetailsLink {
+  background: none;
+  border: none;
+  color: #53354a;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+  font-size: 0.9rem;
+}
+
+/* Functional Transitions */
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Adaptive Sizing */
+@media (max-width: 768px) {
+  .modalSplitView { flex-direction: column; }
+  .popularPerfumeSection { padding: 40px 16px; }
+  .navArrow { display: none !important; } /* Fallback to natural touch scrolling mechanics on mobile viewports */
+}
