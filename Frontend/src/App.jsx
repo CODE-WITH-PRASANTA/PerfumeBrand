@@ -3,6 +3,7 @@ import About from "./Pages/About/About";
 import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
+import Toilette from "./Pages/Toilette/Toilette";
 
 
 
@@ -14,6 +15,9 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/allperfume" element={<Allperfume />} />
+        <Route path="/toilette" element={<Toilette />} />
+        
+        
 
         
         

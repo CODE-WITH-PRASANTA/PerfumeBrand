@@ -1,0 +1,503 @@
+/* ==========================================
+   OUR COLLECTIONS
+========================================== */
+
+.OurCollections{
+    width:100%;
+    padding:80px 30px;
+    background:#ffffff;
+}
+
+.OurCollectionsContainer{
+    max-width:1600px;
+    margin:auto;
+}
+
+.OurCollectionsHeading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.OurCollectionsHeading h2{
+    font-size:44px;
+    font-weight:700;
+    font-family:"Cormorant Garamond",serif;
+    color:#151515;
+    line-height:1.2;
+}
+
+/* ==========================================
+   TOP GRID
+========================================== */
+
+.OurCollectionsLargeGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    margin-bottom:35px;
+}
+
+.OurCollectionsLargeCard{
+    cursor:pointer;
+    transition:.4s;
+}
+
+.OurCollectionsLargeImageBox{
+
+    width:100%;
+    height:620px;
+
+    background:#FAEEEE;
+
+    border-radius:8px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.OurCollectionsLargeImage{
+
+    width:70%;
+    height:82%;
+
+    object-fit:contain;
+    object-position:center;
+
+    transition:.4s;
+
+}
+
+/* Different image sizes */
+
+.OurCollectionsLargeCard:first-child .OurCollectionsLargeImage{
+
+    width:62%;
+
+}
+
+.OurCollectionsLargeCard:last-child .OurCollectionsLargeImage{
+
+    width:72%;
+
+}
+
+.OurCollectionsLargeCard:hover .OurCollectionsLargeImage{
+
+    transform:scale(1.05);
+
+}/* ==========================================
+   MIDDLE & BOTTOM GRID
+========================================== */
+
+.OurCollectionsGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.OurCollectionsBottomGrid{
+    margin-top:35px;
+}
+
+.OurCollectionsCard{
+    cursor:pointer;
+    transition:.4s;
+}
+
+/* ==========================================
+   SMALL CARD IMAGE BOX
+========================================== */
+
+.OurCollectionsImageBox{
+
+    width:100%;
+    height:520px;
+
+    background:#fcd3d6;
+
+    border-radius:8px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    transition:.4s ease;
+
+}
+
+.OurCollectionsImage{
+
+    width:68%;
+    height:80%;
+
+    object-fit:contain;
+    object-position:center;
+
+    transition:.4s ease;
+
+}
+
+/* Different image sizes */
+
+.OurCollectionsCard:nth-child(1) .OurCollectionsImage{
+
+    width:60%;
+
+}
+
+.OurCollectionsCard:nth-child(2) .OurCollectionsImage{
+
+    width:82%;
+
+}
+
+.OurCollectionsCard:nth-child(3) .OurCollectionsImage{
+
+    width:58%;
+
+}
+
+/* Bottom row */
+
+.OurCollectionsBottomGrid .OurCollectionsCard:nth-child(1) .OurCollectionsImage{
+
+    width:58%;
+
+}
+
+.OurCollectionsBottomGrid .OurCollectionsCard:nth-child(2) .OurCollectionsImage{
+
+    width:72%;
+
+}
+
+.OurCollectionsBottomGrid .OurCollectionsCard:nth-child(3) .OurCollectionsImage{
+
+    width:66%;
+
+}
+
+/* Hover */
+
+.OurCollectionsCard:hover .OurCollectionsImage,
+.OurCollectionsLargeCard:hover .OurCollectionsLargeImage{
+
+    transform:scale(1.05);
+
+}
+
+.OurCollectionsCard:hover .OurCollectionsImageBox,
+.OurCollectionsLargeCard:hover .OurCollectionsLargeImageBox{
+
+    background:#F8EAEA;
+
+}/* ==========================================
+   CONTENT
+========================================== */
+
+.OurCollectionsContent{
+    text-align:center;
+    padding-top:22px;
+}
+
+.OurCollectionsContent h3{
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    font-weight:600;
+
+    color:#151515;
+
+    margin:0 0 8px;
+
+    transition:.35s;
+
+}
+
+.OurCollectionsContent span{
+
+    display:block;
+
+    font-size:18px;
+    font-weight:500;
+
+    color:#8b6179;
+
+    letter-spacing:.3px;
+
+}
+
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+
+.OurCollectionsLargeCard,
+.OurCollectionsCard{
+
+    transition:all .35s ease;
+
+}
+
+.OurCollectionsLargeCard:hover,
+.OurCollectionsCard:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.OurCollectionsLargeCard:hover .OurCollectionsContent h3,
+.OurCollectionsCard:hover .OurCollectionsContent h3{
+
+    color:#6f3f57;
+
+}
+
+/* ==========================================
+   IMAGE ANIMATION
+========================================== */
+
+.OurCollectionsLargeImage,
+.OurCollectionsImage{
+
+    transition:transform .45s ease;
+
+}
+
+.OurCollectionsLargeCard:hover .OurCollectionsLargeImage{
+
+    transform:scale(1.06);
+
+}
+
+.OurCollectionsCard:hover .OurCollectionsImage{
+
+    transform:scale(1.06);
+
+}
+
+/* ==========================================
+   REMOVE IMAGE BACKGROUND
+========================================== */
+
+.OurCollectionsLargeImage,
+.OurCollectionsImage{
+
+    mix-blend-mode:multiply;
+
+    user-select:none;
+    pointer-events:none;
+
+}
+
+/* ==========================================
+   SPACING
+========================================== */
+
+.OurCollectionsLargeGrid{
+
+    margin-bottom:45px;
+
+}
+
+.OurCollectionsBottomGrid{
+
+    margin-top:40px;
+
+}/* ==========================================
+   LARGE LAPTOPS
+========================================== */
+
+@media (max-width: 1400px){
+
+    .OurCollections{
+        padding:70px 25px;
+    }
+
+    .OurCollectionsContainer{
+        max-width:1300px;
+    }
+
+    .OurCollectionsLargeImageBox{
+        height:540px;
+    }
+
+    .OurCollectionsImageBox{
+        height:430px;
+    }
+
+    .OurCollectionsHeading h2{
+        font-size:40px;
+    }
+
+    .OurCollectionsContent h3{
+        font-size:28px;
+    }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:992px){
+
+    .OurCollections{
+        padding:60px 20px;
+    }
+
+    .OurCollectionsHeading{
+        margin-bottom:40px;
+    }
+
+    .OurCollectionsHeading h2{
+        font-size:36px;
+    }
+
+    .OurCollectionsLargeGrid{
+        grid-template-columns:1fr;
+        gap:25px;
+        margin-bottom:30px;
+    }
+
+    .OurCollectionsGrid{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    .OurCollectionsLargeImageBox{
+        height:480px;
+    }
+
+    .OurCollectionsImageBox{
+        height:360px;
+    }
+
+    .OurCollectionsLargeImage,
+    .OurCollectionsImage{
+        width:65% !important;
+        height:78%;
+    }
+
+    .OurCollectionsContent h3{
+        font-size:24px;
+    }
+
+    .OurCollectionsContent span{
+        font-size:17px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:576px){
+
+    .OurCollections{
+        padding:45px 15px;
+    }
+
+    .OurCollectionsHeading{
+        margin-bottom:30px;
+    }
+
+    .OurCollectionsHeading h2{
+        font-size:30px;
+    }
+
+    .OurCollectionsLargeGrid,
+    .OurCollectionsGrid{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .OurCollectionsLargeImageBox,
+    .OurCollectionsImageBox{
+        height:320px;
+    }
+
+    .OurCollectionsLargeImage,
+    .OurCollectionsImage{
+        width:68% !important;
+        height:75%;
+    }
+
+    .OurCollectionsContent{
+        margin-top:16px;
+    }
+
+    .OurCollectionsContent h3{
+        font-size:20px;
+        margin-bottom:6px;
+    }
+
+    .OurCollectionsContent span{
+        font-size:15px;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width:380px){
+
+    .OurCollections{
+        padding:35px 12px;
+    }
+
+    .OurCollectionsHeading h2{
+        font-size:26px;
+    }
+
+    .OurCollectionsLargeImageBox,
+    .OurCollectionsImageBox{
+        height:270px;
+    }
+
+    .OurCollectionsLargeImage,
+    .OurCollectionsImage{
+        width:72% !important;
+    }
+
+    .OurCollectionsContent h3{
+        font-size:18px;
+    }
+
+    .OurCollectionsContent span{
+        font-size:14px;
+    }
+
+}
+
+/* ==========================================
+   EXTRA LARGE SCREENS
+========================================== */
+
+@media (min-width:1800px){
+
+    .OurCollectionsContainer{
+        max-width:1750px;
+    }
+
+    .OurCollectionsLargeImageBox{
+        height:700px;
+    }
+
+    .OurCollectionsImageBox{
+        height:600px;
+    }
+
+    .OurCollectionsHeading h2{
+        font-size:50px;
+    }
+
+}
