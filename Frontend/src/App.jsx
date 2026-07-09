@@ -5,7 +5,8 @@ import Contact from "./Pages/Contact/Contact";
 import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
-
+import EaudeParfum from "./Pages/EaudeParfum/EaudeParfum";
+ 
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/allperfume" element={<Allperfume />} />
-
+        <Route path="/EaudeParfum" element={<EaudeParfum/>} />
       
       
       </Routes>
