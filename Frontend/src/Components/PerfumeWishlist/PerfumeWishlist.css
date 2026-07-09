@@ -1,0 +1,513 @@
+/* Color Palette Custom Tokens Variable Map */
+:root {
+  --theme-plum-base: #5A3A51;
+  --theme-plum-hover: #452C3E;
+  --card-pink-tint: #FAF0F0;
+  --charcoal-solid: #1C1C1C;
+  --neutral-grey-text: #6B6B6B;
+  --border-light-tint: #EBEBEB;
+}
+
+/* Scoped Namespace Resets */
+.wishlist-component-scope {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   STATE A: EMPTY STATE CLEAN DESIGN
+   ========================================================================== */
+.wishlist-component-scope.empty-state-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55vh;
+}
+
+.empty-center-card {
+  text-align: center;
+  max-width: 440px;
+}
+
+.empty-icon-container {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px auto;
+  opacity: 0.85;
+}
+
+.box-svg-element {
+  width: 100%;
+  height: 100%;
+}
+
+.empty-main-heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--charcoal-solid);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.empty-sub-text {
+  font-size: 14.5px;
+  color: var(--neutral-grey-text);
+  margin: 0 0 26px 0;
+}
+
+.back-shopping-button {
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 14px 34px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-shopping-button:hover {
+  background-color: var(--theme-plum-hover);
+}
+
+/* ==========================================================================
+   STATE B: PRODUCT DISPLAY RESPONSIVE GRID
+   ========================================================================== */
+.wishlist-responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.perfume-product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-wrapper {
+  position: relative;
+  background-color: var(--card-pink-tint);
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.perfume-primary-render {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.perfume-product-card:hover .perfume-primary-render {
+  transform: scale(1.03);
+}
+
+/* Overlay Quick Action Bar Actions */
+.card-hover-actions-panel {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 5;
+}
+
+.perfume-product-card:hover .card-hover-actions-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.action-round-node {
+  background-color: #ffffff;
+  border: none;
+  color: var(--charcoal-solid);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.action-round-node:hover {
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+}
+
+.action-round-node.filled-wishlist-node {
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+}
+
+/* Card metadata text styles */
+.card-info-footer {
+  text-align: center;
+  padding-top: 14px;
+}
+
+.star-rating-row {
+  color: var(--theme-plum-base);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.perfume-title-text {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--charcoal-solid);
+  margin: 0 0 5px 0;
+}
+
+.perfume-price-tag {
+  color: var(--theme-plum-base);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   STATE C: FIDELITY DETAILS OVERLAY MODAL
+   ========================================================================== */
+.modal-fixed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-window-box {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 880px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  animation: modalScaleReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleReveal {
+  from { opacity: 0; transform: scale(0.97) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-dismiss-cross {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.modal-dismiss-cross:hover {
+  background-color: var(--theme-plum-hover);
+}
+
+.modal-content-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-left-gallery {
+  background-color: var(--card-pink-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.modal-main-display-img {
+  max-width: 90%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+.modal-right-configurator {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-product-heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--charcoal-solid);
+  margin: 0 0 12px 0;
+}
+
+.modal-pricing-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.price-primary {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--theme-plum-base);
+}
+
+.discount-pill {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.variant-options-wrapper {
+  margin-bottom: 22px;
+}
+
+.option-title-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.highlight-current-value {
+  font-weight: 400;
+  color: var(--neutral-grey-text);
+}
+
+/* Color Variant Swatches + Floating Tooltips */
+.variant-swatch-flex-row {
+  display: flex;
+  gap: 10px;
+}
+
+.swatch-ring-container {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-light-tint);
+  border-radius: 8px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--card-pink-tint);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch-ring-container.swatch-ring-selected {
+  border: 2px solid #000000;
+}
+
+.swatch-solid-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.swatch-floating-tooltip {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 30;
+}
+
+.swatch-floating-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--theme-plum-base) transparent transparent transparent;
+}
+
+/* Weight Selection Chips Layout */
+.weight-chips-flex-row {
+  display: flex;
+  gap: 8px;
+}
+
+.weight-selection-chip {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light-tint);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.weight-selection-chip.weight-chip-selected {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+/* Action Execution Layout Configurations */
+.quantity-and-cart-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+.quantity-counter-widget {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-light-tint);
+  border-radius: 6px;
+  height: 46px;
+}
+
+.qty-step-btn {
+  background: transparent;
+  border: none;
+  width: 38px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--neutral-grey-text);
+}
+
+.qty-display-number {
+  width: 28px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-action-button {
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
+}
+
+.modal-action-button.primary-plum-btn {
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+}
+
+.modal-action-button.primary-plum-btn:hover {
+  background-color: var(--theme-plum-hover);
+}
+
+.quantity-and-cart-row .modal-action-button {
+  flex: 1;
+  height: 46px;
+}
+
+.modal-action-button.buy-now-spacing {
+  width: 100%;
+  padding: 15px 0;
+  margin-bottom: 22px;
+}
+
+.full-details-redirect-trigger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal-solid);
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+}
+
+.diagonal-arrow-glyph {
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS LAYOUT ENGINE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .wishlist-responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wishlist-responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal-content-split {
+    grid-template-columns: 1fr;
+  }
+  .modal-left-gallery {
+    padding: 30px;
+  }
+  .modal-main-display-img {
+    max-height: 260px;
+  }
+  .modal-right-configurator {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wishlist-responsive-grid {
+    grid-template-columns: 1fr;
+  }
+  .quantity-and-cart-row {
+    flex-direction: column;
+  }
+  .quantity-counter-widget {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

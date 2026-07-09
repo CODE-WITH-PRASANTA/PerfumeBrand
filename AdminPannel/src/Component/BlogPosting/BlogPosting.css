@@ -1,0 +1,175 @@
+/* Base Layout & Reset styling cues matching your image */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+/* Sections split 50/50 */
+.blog-form-section,
+.blog-preview-section {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+/* Form Styling */
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.form-group input {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #fff;
+}
+
+/* Buttons match UI theme color patterns from your image */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit {
+  background-color: #0b57d0; /* Match layout blue */
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #0842a0;
+}
+
+.btn-reset {
+  background-color: #dc2626; /* Match layout red */
+  color: white;
+}
+
+.btn-reset:hover {
+  background-color: #b91c1c;
+}
+
+/* Live Preview Side Styling */
+.preview-card {
+  flex: 1;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background-color: #fafafa;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.no-data-message {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.preview-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.preview-body {
+  line-height: 1.6;
+  color: #334155;
+  word-break: break-word;
+}
+
+/* Responsive Rules: Stacks vertically on screens below 768px wide */
+@media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,379 @@
+/* ==========================================================
+   CONTACT DETAILS
+   PART 1
+   Layout + Form + Inputs
+========================================================== */
+
+/* ==========================
+   RESET
+========================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================
+   SECTION
+========================== */
+
+.contact-details-section{
+    width:100%;
+    background:#ffffff;
+    padding:90px 0;
+    overflow:hidden;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.contact-details-container{
+
+    width:92%;
+    max-width:1400px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    /* Smaller left side, slightly larger right side */
+    grid-template-columns:1.2fr 1fr;
+
+    gap:70px;
+
+    align-items:flex-start;
+}
+
+/* ==========================
+   LEFT FORM
+========================== */
+
+.contact-form-wrapper{
+
+    width:100%;
+
+    background:#f8f0e2;
+
+    border-radius:22px;
+
+    padding:40px;
+
+    min-height:auto;
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.contact-form{
+
+    width:100%;
+
+    max-width:500px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================
+   FIELD
+========================== */
+
+.contact-field{
+
+    width:100%;
+
+    margin-bottom:34px;
+}
+
+/* ==========================
+   LABEL
+========================== */
+
+.contact-field label{
+
+    display:block;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    color:#111;
+
+    margin-bottom:10px;
+}
+
+/* ==========================
+   INPUT
+========================== */
+
+.contact-field input{
+
+    width:100%;
+
+    height:45px;
+
+    background:transparent;
+
+    border:none;
+
+    border-bottom:1px solid #d5cdbc;
+
+    outline:none;
+
+    font-size:16px;
+
+    color:#222;
+
+    padding-bottom:10px;
+
+    transition:.35s;
+}
+
+.contact-field input:focus{
+
+    border-color:#6d355f;
+}
+
+/* ==========================
+   TEXTAREA
+========================== */
+
+.contact-field textarea{
+
+    width:100%;
+
+    min-height:100px;
+
+    resize:none;
+
+    background:transparent;
+
+    border:none;
+
+    border-bottom:1px solid #d5cdbc;
+
+    outline:none;
+
+    font-size:16px;
+
+    color:#222;
+
+    line-height:1.5;
+
+    padding-bottom:10px;
+
+    transition:.35s;
+}
+
+.contact-field textarea:focus{
+
+    border-color:#6d355f;
+}
+
+/* ==========================
+   PLACEHOLDER
+========================== */
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder{
+
+    color:#9d9d9d;
+}
+
+/* ==========================
+   AUTOFILL FIX
+========================== */
+
+.contact-field input:-webkit-autofill,
+.contact-field textarea:-webkit-autofill{
+
+    -webkit-box-shadow:0 0 0 1000px #f8f0e2 inset;
+    -webkit-text-fill-color:#222222;
+}
+
+/* ==========================================================
+   CONTACT DETAILS
+   PART 2
+   Right Contact Info + Button + Typography
+========================================================== */
+
+/* ==========================
+   SUBMIT BUTTON
+========================== */
+
+.contact-submit-btn{
+
+    width:170px;
+
+    height:52px;
+
+    margin-top:5px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#6b355f;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.contact-submit-btn:hover{
+
+    background:#52284c;
+
+    transform:translateY(-2px);
+}
+
+.contact-submit-btn:active{
+    transform:translateY(0);
+}
+
+/* ==========================================================
+   RIGHT COLUMN
+========================================================== */
+
+.contact-info-wrapper{
+
+    width:100%;
+
+    padding-top:8px;
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.contact-info-wrapper h2{
+
+    font-family:Georgia, serif;
+
+    font-size:50px;
+
+    font-weight:700;
+
+    color:#111111;
+
+    line-height:1.12;
+
+    margin-bottom:28px;
+}
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.contact-description{
+
+    max-width:620px;
+
+    font-size:20px;
+
+    color:#4d5563;
+
+    line-height:1.9;
+
+    margin-bottom:55px;
+}
+
+/* ==========================================================
+   INFO BLOCK
+========================================================== */
+
+.contact-info-item{
+
+    margin-bottom:42px;
+}
+
+.contact-info-item:last-child{
+    margin-bottom:0;
+}
+
+/* ==========================================================
+   HEADING
+========================================================== */
+
+.contact-info-item h4{
+
+    font-family:Georgia, serif;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#111111;
+
+    margin-bottom:10px;
+}
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.contact-info-item p{
+
+    font-size:20px;
+
+    color:#4d5563;
+
+    line-height:1.8;
+}
+
+/* ==========================================================
+   LINKS (optional)
+========================== */
+
+.contact-info-item a{
+
+    color:#4d5563;
+
+    text-decoration:none;
+
+    transition:color .3s ease;
+}
+
+.contact-info-item a:hover{
+
+    color:#6b355f;
+}
+
+/* ==========================================================
+   INPUT / TEXTAREA ANIMATION
+========================================================== */
+
+.contact-field input,
+.contact-field textarea{
+
+    transition:
+        border-color .35s ease,
+        color .35s ease;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus{
+
+    color:#111111;
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+.contact-details-section ::selection{
+
+    background:#6b355f;
+    color:#ffffff;
+}

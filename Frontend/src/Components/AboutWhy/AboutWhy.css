@@ -1,0 +1,411 @@
+/*==================================================
+ABOUT WHY SECTION
+==================================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-why-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+.about-why-container {
+  width: 82%;
+  max-width: 1300px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/*====================================
+LEFT
+====================================*/
+
+.about-why-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.about-why-subtitle {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  color: #6d2f63;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.about-why-title {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111;
+  font-size: 50px;
+  line-height: 1.12;
+  font-weight: 650;
+  margin-bottom: 30px;
+}
+
+.about-why-description {
+  color: #555;
+  font-size: 20px;
+  line-height: 1.9;
+  margin-bottom: 45px;
+}
+
+/*====================================
+BUTTONS
+====================================*/
+
+.about-why-buttons {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.shop-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  min-width: 170px;
+  height: 66px;
+
+  background: #6d2f63;
+  color: #fff;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+  font-weight: 650;
+
+  transition: .35s;
+}
+
+.shop-btn:hover {
+  background: #4f2148;
+  transform: translateY(-3px);
+}
+
+.play-btn {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #1d1d1d;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: .35s;
+}
+
+.play-btn svg {
+  margin-left: 3px;
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/*====================================
+RIGHT
+====================================*/
+
+.about-why-right {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.about-img-card {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f8f8f8;
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+
+  transition: .45s ease;
+}
+
+.about-img-card:hover {
+  transform: translateY(-8px);
+}
+
+.about-img-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*====================================
+IMAGE SIZES
+====================================*/
+
+.img-one {
+  width: 390px;
+  height: 560px;
+  margin-top: 55px;
+}
+
+.img-two {
+  width: 390px;
+  height: 560px;
+}
+
+/*==========================================
+LARGE LAPTOPS
+==========================================*/
+
+@media (max-width: 1400px) {
+  .about-why-container {
+    max-width: 1180px;
+    gap: 55px;
+  }
+
+  .about-why-title {
+    font-size: 52px;
+  }
+
+  .about-why-description {
+    font-size: 18px;
+  }
+
+  .img-one,
+  .img-two {
+    width: 340px;
+    height: 500px;
+  }
+}
+
+/*==========================================
+LAPTOP
+==========================================*/
+
+@media (max-width: 1200px) {
+  .about-why-container {
+    width: 94%;
+    gap: 40px;
+  }
+
+  .about-why-title {
+    font-size: 46px;
+  }
+
+  .about-why-description {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .img-one,
+  .img-two {
+    width: 300px;
+    height: 450px;
+  }
+
+  .img-one {
+    margin-top: 45px;
+  }
+}
+
+/*==========================================
+TABLET
+==========================================*/
+
+@media (max-width: 992px) {
+  .about-why-section {
+    padding: 80px 0;
+  }
+
+  .about-why-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .about-why-left {
+    max-width: 100%;
+  }
+
+  .about-why-subtitle {
+    font-size: 16px;
+  }
+
+  .about-why-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  .about-why-description {
+    margin: 25px auto 40px;
+    max-width: 700px;
+    font-size: 17px;
+  }
+
+  .about-why-buttons {
+    justify-content: center;
+  }
+
+  .about-why-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .img-one,
+  .img-two {
+    width: 290px;
+    height: 420px;
+  }
+
+  .img-one {
+    margin-top: 35px;
+  }
+}
+
+/*==========================================
+MOBILE LARGE
+==========================================*/
+
+@media (max-width: 768px) {
+  .about-why-section {
+    padding: 70px 20px;
+  }
+
+  .about-why-container {
+    gap: 45px;
+  }
+
+  .about-why-title {
+    font-size: 34px;
+  }
+
+  .about-why-description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+  }
+
+  .about-why-buttons {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .shop-btn {
+    width: 190px;
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .play-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .about-why-right {
+    gap: 18px;
+  }
+
+  .img-one,
+  .img-two {
+    width: 230px;
+    height: 340px;
+  }
+
+  .img-one {
+    margin-top: 30px;
+  }
+}
+
+/*==========================================
+SMALL MOBILE
+==========================================*/
+
+@media (max-width: 576px) {
+  .about-why-title {
+    font-size: 30px;
+  }
+
+  .about-why-subtitle {
+    font-size: 15px;
+  }
+
+  .about-why-description {
+    font-size: 15px;
+  }
+
+  .about-why-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .img-one,
+  .img-two {
+    width: 100%;
+    max-width: 360px;
+    height: 430px;
+    margin-top: 0;
+  }
+
+  .shop-btn {
+    width: 180px;
+  }
+}
+
+/*==========================================
+EXTRA SMALL DEVICES
+==========================================*/
+
+@media (max-width: 400px) {
+  .about-why-section {
+    padding: 60px 16px;
+  }
+
+  .about-why-title {
+    font-size: 26px;
+  }
+
+  .about-why-description {
+    font-size: 14px;
+  }
+
+  .shop-btn {
+    width: 170px;
+    height: 52px;
+    font-size: 15px;
+  }
+
+  .play-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 15px;
+  }
+
+  .img-one,
+  .img-two {
+    height: 380px;
+  }
+}

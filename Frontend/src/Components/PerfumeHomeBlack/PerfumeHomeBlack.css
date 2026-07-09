@@ -1,0 +1,467 @@
+/* Custom Design Tokens matching your luxury dark/plum palette */
+:root {
+  --theme-plum-base: #5A3A51;
+  --theme-plum-hover: #452C3E;
+  --charcoal-solid: #111111;
+  --neutral-grey-text: #6B6B6B;
+  --border-light-tint: #EBEBEB;
+  --bg-pink-tint: #FAF0F0;
+}
+
+/* Base Layout Container */
+.PerfumeHomeBlack-container {
+  width: 100%;
+  /* max-width: 1200px; Sightly tightened max-width for better balance */
+  margin: 0 auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Two equal columns with DECREASED gap to match properly */
+.PerfumeHomeBlack-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px; /* Decreased gap from 48px to 32px for a cleaner look */
+  align-items: start;
+}
+
+/* Left and Right Side Core Containers */
+.PerfumeHomeBlack-left,
+.PerfumeHomeBlack-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: IMAGES & CAROUSEL
+   ========================================================================== */
+.PerfumeHomeBlack-main-img-wrapper {
+  position: relative;
+  background-color: var(--bg-pink-tint);
+  border-radius: 12px;
+  aspect-ratio: 1.1 / 1; /* Adjusted aspect ratio to prevent extra tall spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.PerfumeHomeBlack-main-img {
+  width: 150%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.PerfumeHomeBlack-main-img-wrapper:hover .PerfumeHomeBlack-main-img {
+  transform: scale(1.03);
+}
+
+.PerfumeHomeBlack-zoom-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--charcoal-solid);
+}
+
+/* Precision Thumbnails Carousel */
+.PerfumeHomeBlack-carousel-outer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.PerfumeHomeBlack-carousel-arrow {
+  background: #ffffff;
+  border: 1px solid var(--border-light-tint);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.PerfumeHomeBlack-carousel-arrow:hover {
+  background: var(--theme-plum-base);
+  color: #ffffff;
+  border-color: var(--theme-plum-base);
+}
+
+.PerfumeHomeBlack-thumbnails-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.PerfumeHomeBlack-thumb-box {
+  background-color: var(--bg-pink-tint);
+  border: 1px solid var(--border-light-tint);
+  border-radius: 6px;
+  aspect-ratio: 1 / 1;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.PerfumeHomeBlack-thumb-box.active {
+  border: 2px solid var(--charcoal-solid);
+}
+
+.PerfumeHomeBlack-thumb-box img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: METADATA & CONFIGURATOR
+   ========================================================================== */
+.PerfumeHomeBlack-breadcrumbs {
+  font-size: 13px;
+  color: var(--neutral-grey-text);
+  margin-bottom: 6px;
+}
+
+.PerfumeHomeBlack-sku {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--neutral-grey-text);
+  margin-bottom: 4px;
+}
+
+.PerfumeHomeBlack-rating {
+  color: var(--theme-plum-base);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.PerfumeHomeBlack-rating-count {
+  color: var(--neutral-grey-text);
+  margin-left: 6px;
+  font-size: 13px;
+}
+
+.PerfumeHomeBlack-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--charcoal-solid);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+/* Pricing Grid Block */
+.PerfumeHomeBlack-price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.PerfumeHomeBlack-current-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--theme-plum-base);
+}
+
+.PerfumeHomeBlack-old-price {
+  font-size: 16px;
+  color: var(--neutral-grey-text);
+  text-decoration: line-through;
+}
+
+.PerfumeHomeBlack-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.PerfumeHomeBlack-badge.sale {
+  background: var(--theme-plum-base);
+  color: #ffffff;
+}
+
+.PerfumeHomeBlack-badge.percent {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Stock Progress Area */
+.PerfumeHomeBlack-stock-bar {
+  margin-bottom: 20px;
+}
+
+.PerfumeHomeBlack-stock-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #d93838;
+  margin-bottom: 6px;
+}
+
+.PerfumeHomeBlack-progress-line {
+  height: 4px;
+  background-color: #d93838;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Configurator Sections (Colors / Weights) */
+.PerfumeHomeBlack-section {
+  margin-bottom: 16px;
+}
+
+.PerfumeHomeBlack-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal-solid);
+}
+
+.PerfumeHomeBlack-value {
+  font-size: 14px;
+  color: var(--neutral-grey-text);
+  margin-left: 6px;
+  text-transform: capitalize;
+}
+
+.PerfumeHomeBlack-color-swatches {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.PerfumeHomeBlack-swatch-wrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-light-tint);
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.PerfumeHomeBlack-swatch-wrapper.active {
+  border: 2px solid var(--charcoal-solid);
+}
+
+.PerfumeHomeBlack-swatch {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.PerfumeHomeBlack-tooltip {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--charcoal-solid);
+  color: #ffffff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.PerfumeHomeBlack-weight-options {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.PerfumeHomeBlack-weight-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-light-tint);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.PerfumeHomeBlack-weight-btn.active {
+  background: var(--charcoal-solid);
+  color: #ffffff;
+  border-color: var(--charcoal-solid);
+}
+
+/* Quantities and Primary Actions Blocks */
+.PerfumeHomeBlack-quantity-section {
+  margin-bottom: 12px;
+}
+
+.PerfumeHomeBlack-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.PerfumeHomeBlack-qty-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-light-tint);
+  border-radius: 6px;
+  height: 44px;
+  background: #ffffff;
+}
+
+.PerfumeHomeBlack-qty-selector button {
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--neutral-grey-text);
+}
+
+.PerfumeHomeBlack-qty-selector input {
+  width: 28px;
+  text-align: center;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+
+/* Global Actions Interactive Elements */
+.PerfumeHomeBlack-btn {
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  height: 44px;
+  transition: background-color 0.2s ease;
+}
+
+.PerfumeHomeBlack-btn.primary {
+  background-color: var(--theme-plum-base);
+  color: #ffffff;
+  flex-grow: 1;
+}
+
+.PerfumeHomeBlack-btn.primary:hover {
+  background-color: var(--theme-plum-hover);
+}
+
+.PerfumeHomeBlack-btn.secondary {
+  background-color: var(--charcoal-solid);
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.PerfumeHomeBlack-btn.secondary:hover {
+  background-color: #333333;
+}
+
+/* Graphical Trust Checkout Card Panel */
+.PerfumeHomeBlack-checkout-box {
+  border: 1px dashed var(--border-light-tint);
+  padding: 14px;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.PerfumeHomeBlack-checkout-title {
+  font-size: 12px;
+  color: var(--neutral-grey-text);
+  margin-bottom: 10px;
+}
+
+.PerfumeHomeBlack-trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.payment-logo {
+  border-radius: 3px;
+  object-fit: contain;
+}
+
+/* Accordion Component Modules */
+.PerfumeHomeBlack-accordions {
+  border-top: 1px solid var(--border-light-tint);
+  margin-bottom: 20px;
+}
+
+.PerfumeHomeBlack-accordion-item {
+  border-bottom: 1px solid var(--border-light-tint);
+}
+
+.PerfumeHomeBlack-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--charcoal-solid);
+}
+
+.PerfumeHomeBlack-accordion-content {
+  padding-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--neutral-grey-text);
+}
+
+/* Social Share Block Lines */
+.PerfumeHomeBlack-share-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.PerfumeHomeBlack-share-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  color: var(--neutral-grey-text);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT RESPONSES
+   ========================================================================== */
+@media (max-width: 992px) {
+  .PerfumeHomeBlack-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

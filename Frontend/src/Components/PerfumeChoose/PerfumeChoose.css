@@ -1,0 +1,162 @@
+.PerfumeChoose-container {
+  width: 100%;
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 60px 24px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Two column split grid layout */
+.PerfumeChoose-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ==========================================================================
+   LEFT SIDE: MEDIA LAYOUT
+   ========================================================================== */
+.PerfumeChoose-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px; /* Constrained elegant height */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  background-color: #f9f9f9;
+}
+
+.PerfumeChoose-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the area beautifully without distortion */
+  object-position: center;
+  display: block;
+}
+
+/* Elegant minimalist play button on bottom-left */
+.PerfumeChoose-play-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  padding: 0;
+}
+
+.PerfumeChoose-play-btn svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.PerfumeChoose-play-btn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   RIGHT SIDE: TYPOGRAPHY & TEXT CONTENT
+   ========================================================================== */
+.PerfumeChoose-content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-right: 20px;
+}
+
+/* High-end Serif Header Styling */
+.PerfumeChoose-title {
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.PerfumeChoose-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+}
+
+.PerfumeChoose-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.PerfumeChoose-feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.PerfumeChoose-feature-title {
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.PerfumeChoose-feature-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .PerfumeChoose-grid {
+    gap: 36px;
+  }
+  .PerfumeChoose-title {
+    font-size: 32px;
+  }
+  .PerfumeChoose-media-wrapper {
+    height: 440px;
+  }
+}
+
+@media (max-width: 768px) {
+  .PerfumeChoose-container {
+    padding: 40px 20px;
+  }
+  /* Collapse to a single beautiful column on mobile tablets */
+  .PerfumeChoose-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .PerfumeChoose-media-wrapper {
+    height: 380px;
+  }
+  .PerfumeChoose-content {
+    padding-right: 0;
+  }
+}
+
+
+.PerfumeChoose-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9; /* Adjust this to match your design layout if needed */
+  border-radius: 8px;   /* Match the border-radius used on your .PerfumeChoose-image */
+  object-fit: cover;
+}

@@ -1,0 +1,535 @@
+/* ==========================================================
+   FAQ TRUSTED
+   PART 3
+   Layout & Styling
+========================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.trusted-section{
+    width:100%;
+    background:#ffffff;
+    padding:90px 0;
+    overflow:hidden;
+}
+
+.trusted-container{
+    width:92%;
+    max-width:1450px;
+    margin:auto;
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.trusted-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:55px;
+    gap:30px;
+}
+
+.trusted-title{
+    font-family:Georgia,serif;
+    font-size:64px;
+    font-weight:700;
+    line-height:1.1;
+    color:#151515;
+    max-width:620px;
+}
+
+/*==========================================================
+NAVIGATION
+==========================================================*/
+
+.trusted-navigation{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:12px;
+}
+
+.trusted-nav-btn{
+    width:54px;
+    height:54px;
+    border:none;
+    border-radius:50%;
+    background:#6a345f;
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    transition:.35s ease;
+}
+
+.trusted-nav-btn:hover{
+    background:#52274b;
+    transform:translateY(-3px);
+}
+
+/*==========================================================
+GRID
+==========================================================*/
+
+.trusted-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:36px;
+}
+
+/*==========================================================
+CARD WRAPPER
+==========================================================*/
+
+.trusted-card-wrapper{
+    display:flex;
+    flex-direction:column;
+}
+
+/*==========================================================
+CARD
+==========================================================*/
+
+.trusted-card{
+
+    width:100%;
+    min-height:240px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:42px 46px;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+}
+
+.trusted-card:hover{
+    transform:translateY(-6px);
+}
+
+.trusted-review{
+    font-size:19px;
+    line-height:1.8;
+    color:#5a5a5a;
+    margin-bottom:28px;
+}
+
+/*==========================================================
+STARS
+==========================================================*/
+
+.trusted-stars{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.trusted-star{
+    color:#dddddd;
+    font-size:22px;
+}
+
+.trusted-star.filled{
+    color:#6a345f;
+}
+
+/*==========================================================
+USER
+==========================================================*/
+
+.trusted-user{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:28px;
+    padding-left:6px;
+}
+
+.trusted-user-image{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.trusted-user-info{
+    display:flex;
+    flex-direction:column;
+}
+
+.trusted-user-name{
+    font-family:Georgia,serif;
+    font-size:24px;
+    font-weight:700;
+    color:#151515;
+    margin-bottom:8px;
+}
+
+.trusted-user-verified{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.verified-icon{
+    color:#00c2a8;
+    font-size:17px;
+}
+
+.trusted-user-verified span{
+    font-size:16px;
+    color:#333;
+}
+
+/*==========================================================
+SMOOTH ANIMATION
+==========================================================*/
+
+.trusted-card-wrapper{
+    animation:fadeSlide .45s ease;
+}
+
+@keyframes fadeSlide{
+
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+   FAQ TRUSTED
+   PART 4
+   RESPONSIVE MEDIA QUERIES
+========================================================== */
+
+/* ==========================
+   Large Desktop
+========================== */
+
+@media (max-width:1600px){
+
+    .trusted-container{
+        max-width:1320px;
+    }
+
+    .trusted-title{
+        font-size:58px;
+    }
+
+    .trusted-card{
+        padding:36px;
+    }
+
+    .trusted-review{
+        font-size:18px;
+    }
+
+}
+
+/* ==========================
+   Desktop
+========================== */
+
+@media (max-width:1400px){
+
+    .trusted-container{
+        width:94%;
+    }
+
+    .trusted-grid{
+        gap:28px;
+    }
+
+    .trusted-title{
+        font-size:52px;
+    }
+
+    .trusted-card{
+        min-height:220px;
+        padding:32px;
+    }
+
+    .trusted-review{
+        font-size:17px;
+        line-height:1.75;
+    }
+
+    .trusted-user-name{
+        font-size:22px;
+    }
+
+}
+
+/* ==========================
+   Laptop
+========================== */
+
+@media (max-width:1200px){
+
+    .trusted-section{
+        padding:80px 0;
+    }
+
+    .trusted-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
+
+    .trusted-navigation{
+        margin-top:0;
+    }
+
+    .trusted-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:28px;
+    }
+
+    .trusted-title{
+        font-size:46px;
+        max-width:100%;
+    }
+
+    .trusted-card{
+        min-height:230px;
+    }
+
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width:992px){
+
+    .trusted-section{
+        padding:70px 0;
+    }
+
+    .trusted-container{
+        width:92%;
+    }
+
+    .trusted-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+    }
+
+    .trusted-title{
+        font-size:40px;
+    }
+
+    .trusted-card{
+        padding:28px;
+        border-radius:18px;
+    }
+
+    .trusted-review{
+        font-size:16px;
+    }
+
+    .trusted-user-image{
+        width:64px;
+        height:64px;
+    }
+
+    .trusted-user-name{
+        font-size:20px;
+    }
+
+    .trusted-nav-btn{
+        width:50px;
+        height:50px;
+        font-size:24px;
+    }
+
+}
+
+/* ==========================
+   Mobile Large
+========================== */
+
+@media (max-width:768px){
+
+    .trusted-section{
+        padding:60px 0;
+    }
+
+    .trusted-top{
+        margin-bottom:35px;
+    }
+
+    .trusted-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .trusted-title{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .trusted-card{
+        min-height:auto;
+        padding:26px;
+    }
+
+    .trusted-review{
+        font-size:16px;
+        margin-bottom:22px;
+    }
+
+    .trusted-user{
+        margin-top:22px;
+    }
+
+    .trusted-user-image{
+        width:60px;
+        height:60px;
+    }
+
+    .trusted-user-name{
+        font-size:19px;
+    }
+
+    .trusted-user-verified span{
+        font-size:15px;
+    }
+
+    .trusted-nav-btn{
+        width:46px;
+        height:46px;
+        font-size:22px;
+    }
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width:576px){
+
+    .trusted-container{
+        width:90%;
+    }
+
+    .trusted-title{
+        font-size:28px;
+    }
+
+    .trusted-top{
+        gap:20px;
+    }
+
+    .trusted-navigation{
+        gap:12px;
+    }
+
+    .trusted-nav-btn{
+        width:42px;
+        height:42px;
+        font-size:20px;
+    }
+
+    .trusted-card{
+        padding:22px;
+    }
+
+    .trusted-review{
+        font-size:15px;
+        line-height:1.8;
+    }
+
+    .trusted-star{
+        font-size:18px;
+    }
+
+    .trusted-user{
+        gap:14px;
+    }
+
+    .trusted-user-image{
+        width:56px;
+        height:56px;
+    }
+
+    .trusted-user-name{
+        font-size:18px;
+    }
+
+    .trusted-user-verified span{
+        font-size:14px;
+    }
+
+}
+
+/* ==========================
+   Small Mobile
+========================== */
+
+@media (max-width:400px){
+
+    .trusted-section{
+        padding:50px 0;
+    }
+
+    .trusted-container{
+        width:92%;
+    }
+
+    .trusted-title{
+        font-size:24px;
+    }
+
+    .trusted-card{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .trusted-review{
+        font-size:14px;
+    }
+
+    .trusted-user-image{
+        width:52px;
+        height:52px;
+    }
+
+    .trusted-user-name{
+        font-size:17px;
+    }
+
+    .trusted-user-verified span{
+        font-size:13px;
+    }
+
+    .trusted-nav-btn{
+        width:40px;
+        height:40px;
+        font-size:18px;
+    }
+
+}
