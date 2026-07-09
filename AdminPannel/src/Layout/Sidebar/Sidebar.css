@@ -1,0 +1,134 @@
+.sidebar {
+  width: 260px;
+  background-color: var(--primary-blue);
+  color: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  overflow-x: hidden;
+  z-index: 10;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Collapsed Width Layout State */
+.sidebar--collapsed {
+  width: 78px;
+}
+
+.sidebar__header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+
+.sidebar__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--bg-white);
+  letter-spacing: 0.5px;
+}
+
+.sidebar__subtitle {
+  font-size: 0.75rem;
+  color: #93c5fd;
+  margin-left: 8px;
+  background-color: rgba(37, 99, 235, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sidebar__menu {
+  list-style: none;
+  padding: 16px 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  margin: 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.sidebar__icon {
+  font-size: 1.25rem;
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.sidebar__text-container {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.2s ease, max-width 0.2s ease;
+  max-width: 200px;
+}
+
+.sidebar__item-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--bg-white);
+  transition: color 0.2s;
+}
+
+.sidebar__item-subtitle {
+  font-size: 0.75rem;
+  color: #93c5fd; /* Soft Brand Light Blue Subtitle Default */
+  transition: color 0.2s;
+}
+
+/* Core Hover Color State Inversions */
+.sidebar__item:hover {
+  background-color: var(--bg-white);
+}
+
+.sidebar__item:hover .sidebar__icon {
+  color: var(--accent-blue);
+}
+
+.sidebar__item:hover .sidebar__item-title {
+  color: var(--primary-blue); /* Text turns brand blue on white background hover */
+}
+
+.sidebar__item:hover .sidebar__item-subtitle {
+  color: var(--accent-blue); /* Subtitle turns vivid royal blue on white hover */
+}
+
+/* Structural Collapsed Modifier Transitions */
+.sidebar--collapsed .sidebar__text-container {
+  opacity: 0;
+  max-width: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Adaptive Breakpoint Systems (Cross-Device Optimization) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    bottom: 0;
+  }
+  
+  /* Slides over current context natively when actioned */
+  .sidebar.sidebar--open {
+    left: 0;
+    width: 260px;
+  }
+
+  /* Structural fallback overriding minimized space for screen layout logic */
+  .sidebar--collapsed {
+    left: -260px;
+  }
+}

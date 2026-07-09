@@ -11,6 +11,7 @@ import Allperfume from "./Pages/Allperfume/Allperfume";
 import Navbar from "./Pages/Navbar/Navbar";
 import Footer from "./Pages/Footer/Footer";
 import Wishlist from "./Pages/Wishlist/Wishlist";
+import Cart from "./Pages/Cart/Cart";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/blogdetail" element={<BlogDetail />} />
         <Route path="/all-perfumes" element={<Allperfume />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
 
       
       
