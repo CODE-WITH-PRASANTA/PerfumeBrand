@@ -1,0 +1,215 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.Login{
+    width:100%;
+    min-height:100vh;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:70px 20px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.Login-container{
+    width:100%;
+    max-width:500px;
+}
+
+.Login-title{
+    text-align:center;
+    font-size:52px;
+    font-weight:700;
+    color:#1c1c1c;
+    margin-bottom:55px;
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+.Login-form{
+    width:100%;
+}
+
+.Login-formGroup{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:28px;
+}
+
+.Login-formGroup label{
+    font-size:19px;
+    color:#4d4d4d;
+    margin-bottom:10px;
+}
+
+.Login-formGroup input{
+    width:100%;
+    height:58px;
+    border:1px solid #bcbcbc;
+    border-radius:12px;
+    padding:0 18px;
+    font-size:18px;
+    outline:none;
+    background:#fff;
+    transition:.3s;
+}
+
+.Login-formGroup input::placeholder{
+    color:#9a9a9a;
+}
+
+.Login-formGroup input:focus{
+    border-color:#6f3e66;
+    box-shadow:0 0 0 3px rgba(111,62,102,.12);
+}
+
+.Login-forgot{
+    margin-top:-8px;
+    margin-bottom:30px;
+}
+
+.Login-forgot a{
+    color:#555;
+    font-size:17px;
+    text-decoration:underline;
+    transition:.3s;
+}
+
+.Login-forgot a:hover{
+    color:#6a3d63;
+}
+
+.Login-btn{
+    display:block;
+    width:150px;
+    height:54px;
+    margin:0 auto;
+    border:none;
+    border-radius:10px;
+    background:#6a3d63;
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+    letter-spacing:.4px;
+}
+
+.Login-btn:hover{
+    background:#593455;
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(106,61,99,.28);
+}
+
+.Login-register{
+    text-align:center;
+    margin-top:28px;
+}
+
+.Login-register a{
+    color:#555;
+    font-size:18px;
+    text-decoration:underline;
+    transition:.3s;
+}
+
+.Login-register a:hover{
+    color:#6a3d63;
+}
+
+/* ---------- Laptop ---------- */
+
+@media(max-width:1200px){
+
+.Login-title{
+    font-size:48px;
+}
+
+}
+
+/* ---------- Tablet ---------- */
+
+@media(max-width:768px){
+
+.Login{
+    padding:60px 25px;
+}
+
+.Login-container{
+    max-width:100%;
+}
+
+.Login-title{
+    font-size:42px;
+    margin-bottom:45px;
+}
+
+.Login-formGroup label{
+    font-size:17px;
+}
+
+.Login-formGroup input{
+    height:54px;
+    font-size:17px;
+}
+
+.Login-btn{
+    width:145px;
+    height:52px;
+    font-size:20px;
+}
+
+.Login-register a,
+.Login-forgot a{
+    font-size:16px;
+}
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:480px){
+
+.Login{
+    padding:45px 18px;
+}
+
+.Login-title{
+    font-size:36px;
+    margin-bottom:38px;
+}
+
+.Login-formGroup{
+    margin-bottom:22px;
+}
+
+.Login-formGroup label{
+    font-size:16px;
+}
+
+.Login-formGroup input{
+    height:50px;
+    font-size:16px;
+    border-radius:10px;
+}
+
+.Login-btn{
+    width:100%;
+    height:50px;
+    font-size:18px;
+    border-radius:10px;
+}
+
+.Login-register{
+    margin-top:24px;
+}
+
+.Login-register a,
+.Login-forgot a{
+    font-size:15px;
+}
+
+}

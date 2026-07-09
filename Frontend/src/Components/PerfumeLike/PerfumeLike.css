@@ -1,0 +1,197 @@
+:root {
+  --color-luxury-plum: #4B3049; /* Dark warm purple tone used for texts and badges */
+  --bg-warm-tint: #FDF4F4;      /* Soft warm aesthetic background tint for card frames */
+  --text-muted: #999999;
+}
+
+.PerfumeLike-wrapper {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 60px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Section Header Typography */
+.PerfumeLike-section-title {
+  text-align: center;
+  font-family: "Playfair Display", "Didot", "Georgia", serif;
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Responsive Grid Engine (No Right-Side Navigation Button) */
+.PerfumeLike-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* Individual Product Structural Card */
+.PerfumeLike-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+/* Top Media Canvas Container */
+.PerfumeLike-image-frame {
+  position: relative;
+  background-color: var(--bg-warm-tint);
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Retains clean square canvas shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* High-fidelity fluid image positioning */
+.PerfumeLike-display-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Discount Badge styling */
+.PerfumeLike-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--color-luxury-plum);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.2px;
+  z-index: 5;
+}
+
+/* Floating Action Circle Icons Panel revealed on Hover */
+.PerfumeLike-action-toolbar {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 10;
+}
+
+.PerfumeLike-action-toolbar.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toolbar-icon-btn {
+  background-color: #ffffff;
+  border: none;
+  color: #333333;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.toolbar-icon-btn:hover {
+  background-color: var(--color-luxury-plum);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   METADATA INFOBARKS & LABELS
+   ========================================================================== */
+.PerfumeLike-info-block {
+  text-align: center;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PerfumeLike-stars-row {
+  color: var(--color-luxury-plum);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.PerfumeLike-item-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.PerfumeLike-pricing-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.price-current {
+  color: var(--color-luxury-plum);
+  font-weight: 700;
+}
+
+.price-slashed {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   FULL RESPONSIVE SYSTEM MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .PerfumeLike-grid-container {
+    grid-template-columns: repeat(3, 1fr); /* Fits 3 cards on smaller desktop/ipad pro landscape */
+    gap: 20px;
+  }
+  .PerfumeLike-section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .PerfumeLike-grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Fits 2 cards beautifully on tablet portraits */
+    gap: 16px;
+  }
+  .PerfumeLike-wrapper {
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .PerfumeLike-grid-container {
+    grid-template-columns: 1fr; /* 1 clean card row stream on phone screens */
+    gap: 24px;
+  }
+  .PerfumeLike-section-title {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+}
