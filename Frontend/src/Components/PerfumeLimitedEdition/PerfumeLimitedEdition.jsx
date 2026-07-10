@@ -187,11 +187,28 @@ const MOCK_PERFUMES = [
   }
 ];
 
+// Mock data for variants inside the modal
+const COLOR_VARIANTS = [
+  { id: 'v1', name: 'Black', img: perfumeImg1 },
+  { id: 'v2', name: 'Blue', img: perfumeImg2 },
+  { id: 'v3', name: 'Pink', img: perfumeImg3 },
+  { id: 'v4', name: 'Gold', img: perfumeImg4 }
+];
+
+const WEIGHT_VARIANTS = ['100ML', '200ML', '500ML'];
+
 const PerfumeLimitedEdition = () => {
   const [gridCols, setGridCols] = useState(3);
   const [sortBy, setSortBy] = useState('Featured');
   const [currentPage, setCurrentPage] = useState(1);
   const [hoveredProductId, setHoveredProductId] = useState(null);
+
+  // Quick View Modal States
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [modalQuantity, setModalQuantity] = useState(1);
+  const [selectedColor, setSelectedColor] = useState(COLOR_VARIANTS[0]);
+  const [hoveredColorName, setHoveredColorName] = useState(null);
+  const [selectedWeight, setSelectedWeight] = useState('100ML');
 
   // Filters Collapsible Toggles State
   const [openSections, setOpenSections] = useState({
@@ -250,6 +267,14 @@ const PerfumeLimitedEdition = () => {
       setCurrentPage(pageNumber);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  // Open Modal Handler
+  const openQuickView = (perfume) => {
+    setQuickViewProduct(perfume);
+    setModalQuantity(1);
+    setSelectedColor(COLOR_VARIANTS[0]);
+    setSelectedWeight('100ML');
   };
 
   return (
@@ -377,78 +402,6 @@ const PerfumeLimitedEdition = () => {
             )}
           </div>
 
-          {/* Color */}
-          <div className="filter-section">
-            <div className="filter-header-clickable" onClick={() => toggleSection('color')}>
-              <h4 className="filter-title">Color</h4>
-              <span className={`arrow-indicator ${openSections.color ? 'expanded' : ''}`}>▼</span>
-            </div>
-            {openSections.color && (
-              <div className="filter-content-wrapper scrollable-filter-list">
-                {['Black', 'Blue', 'Green', 'Red'].map((col, i) => (
-                  <label key={i} className="filter-checkbox-row">
-                    <input type="checkbox" />
-                    <span className="checkbox-label">{col}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Weight */}
-          <div className="filter-section">
-            <div className="filter-header-clickable" onClick={() => toggleSection('weight')}>
-              <h4 className="filter-title">Weight</h4>
-              <span className={`arrow-indicator ${openSections.weight ? 'expanded' : ''}`}>▼</span>
-            </div>
-            {openSections.weight && (
-              <div className="filter-content-wrapper scrollable-filter-list">
-                {['100g', '200g', '300g', '500g', '100ML'].map((w, i) => (
-                  <label key={i} className="filter-checkbox-row">
-                    <input type="checkbox" />
-                    <span className="checkbox-label">{w}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Category */}
-          <div className="filter-section">
-            <div className="filter-header-clickable" onClick={() => toggleSection('category')}>
-              <h4 className="filter-title">Category</h4>
-              <span className={`arrow-indicator ${openSections.category ? 'expanded' : ''}`}>▼</span>
-            </div>
-            {openSections.category && (
-              <div className="filter-content-wrapper">
-                {['Charging Cables', 'Doll House Playsets', 'Face Powder', 'Fragrances'].map((cat, i) => (
-                  <label key={i} className="filter-checkbox-row">
-                    <input type="checkbox" />
-                    <span className="checkbox-label">{cat}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Brand */}
-          <div className="filter-section">
-            <div className="filter-header-clickable" onClick={() => toggleSection('brand')}>
-              <h4 className="filter-title">Brand</h4>
-              <span className={`arrow-indicator ${openSections.brand ? 'expanded' : ''}`}>▼</span>
-            </div>
-            {openSections.brand && (
-              <div className="filter-content-wrapper">
-                {['Arome', 'Arome Store', 'Perfume', 'Srmani'].map((br, i) => (
-                  <label key={i} className="filter-checkbox-row">
-                    <input type="checkbox" />
-                    <span className="checkbox-label">{br}</span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
         </aside>
 
         {/* RIGHT DISPLAY CARDS AREA */}
@@ -464,17 +417,17 @@ const PerfumeLimitedEdition = () => {
                   onMouseEnter={() => setHoveredProductId(perfume.id)}
                   onMouseLeave={() => setHoveredProductId(null)}
                 >
-                  <a href={`#/product/${perfume.id}`} className="card-media-link-wrapper">
+                  <div className="card-media-link-wrapper" onClick={() => openQuickView(perfume)} style={{ cursor: 'pointer' }}>
                     <div className="card-media-box">
                       {perfume.tag && <span className={`product-badge ${perfume.tag.toLowerCase().includes('sold') ? 'sold-out' : ''}`}>{perfume.tag}</span>}
                       <img src={hoveredProductId === perfume.id ? perfume.hoverImage : perfume.primaryImage} alt={perfume.name} className="product-display-image" />
                       
-                      {/* ADDED: Hover Quick Action Buttons Container */}
+                      {/* Hover Quick Action Buttons Container */}
                       <div className="hover-action-buttons">
                         <button 
                           className="action-btn wishlist-btn" 
                           title="Add to Wishlist"
-                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(`Liked ${perfume.name}!`); }}
+                          onClick={(e) => { e.stopPropagation(); alert(`Liked ${perfume.name}!`); }}
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
@@ -483,7 +436,7 @@ const PerfumeLimitedEdition = () => {
                         <button 
                           className="action-btn quickview-btn" 
                           title="Quick View"
-                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(`Viewing ${perfume.name}`); }}
+                          onClick={(e) => { e.stopPropagation(); openQuickView(perfume); }}
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -493,7 +446,7 @@ const PerfumeLimitedEdition = () => {
                         <button 
                           className="action-btn cart-btn" 
                           title="Add to Cart"
-                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(`Added ${perfume.name} to cart!`); }}
+                          onClick={(e) => { e.stopPropagation(); openQuickView(perfume); }}
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -502,12 +455,12 @@ const PerfumeLimitedEdition = () => {
                       </div>
 
                     </div>
-                  </a>
+                  </div>
 
                   <div className="card-info-box">
                     <div className="product-rating-stars">{"★".repeat(perfume.rating)}</div>
                     <h3 className="product-display-title">
-                      <a href={`#/product/${perfume.id}`}>{perfume.name}</a>
+                      <span onClick={() => openQuickView(perfume)} style={{ cursor: 'pointer' }}>{perfume.name}</span>
                     </h3>
                     <div className="product-pricing-row">
                       <span className="current-price">${perfume.price.toFixed(2)}</span>
@@ -519,7 +472,7 @@ const PerfumeLimitedEdition = () => {
             </div>
           )}
 
-          {/* Real Dynamically Rendered Pagination Container */}
+          {/* Pagination Container */}
           {totalPages > 1 && (
             <div className="pagination-navigation-container">
               <button 
@@ -555,6 +508,107 @@ const PerfumeLimitedEdition = () => {
         </main>
 
       </div>
+
+      {/* QUICK VIEW DYNAMIC ACCORDION MODAL */}
+      {quickViewProduct && (
+        <div className="arome-modal-backdrop" onClick={() => setQuickViewProduct(null)}>
+          <div className="arome-modal-container" onClick={(e) => e.stopPropagation()}>
+            
+            {/* Close Circle Button */}
+            <button className="arome-modal-close" onClick={() => setQuickViewProduct(null)}>✕</button>
+            
+            {/* Left Side: Product Media Panel */}
+            <div className="arome-modal-left-media">
+              <img src={quickViewProduct.primaryImage} alt={quickViewProduct.name} />
+            </div>
+
+            {/* Right Side: Product Customization Panel */}
+            <div className="arome-modal-right-details">
+              <h2 className="arome-modal-title">{quickViewProduct.name}</h2>
+              <div className="arome-modal-price">${quickViewProduct.price.toFixed(2)}</div>
+
+              {/* Color Swatches Selector with Live Labels */}
+              <div className="arome-modal-variant-section">
+                <div className="arome-variant-label-row">
+                  <span className="variant-label-title">Color:</span>
+                  <span className="variant-label-value">{quickViewProduct.gender || 'Standard'}</span>
+                  {hoveredColorName && (
+                    <span className="arome-hover-badge-tint">{hoveredColorName}</span>
+                  )}
+                </div>
+                <div className="arome-color-swatches-grid">
+                  {COLOR_VARIANTS.map((variant) => (
+                    <div 
+                      key={variant.id}
+                      className={`arome-swatch-box ${selectedColor.id === variant.id ? 'active-swatch' : ''}`}
+                      onClick={() => setSelectedColor(variant)}
+                      onMouseEnter={() => setHoveredColorName(variant.name)}
+                      onMouseLeave={() => setHoveredColorName(null)}
+                    >
+                      <img src={variant.img} alt={variant.name} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Weight Options Box Selection */}
+              <div className="arome-modal-variant-section">
+                <div className="arome-variant-label-row">
+                  <span className="variant-label-title">Weight:</span>
+                  <span className="variant-label-value">{selectedWeight}</span>
+                </div>
+                <div className="arome-weight-buttons-row">
+                  {WEIGHT_VARIANTS.map((weight) => (
+                    <button
+                      key={weight}
+                      className={`arome-weight-btn ${selectedWeight === weight ? 'active-weight' : ''}`}
+                      onClick={() => setSelectedWeight(weight)}
+                    >
+                      {weight}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Counter and Actions Layout row */}
+              <div className="arome-actions-stack">
+                <div className="arome-quantity-row-container">
+                  <div className="arome-quantity-selector">
+                    <button 
+                      onClick={() => setModalQuantity(prev => Math.max(1, prev - 1))}
+                      disabled={modalQuantity <= 1}
+                    >
+                      —
+                    </button>
+                    <input type="text" value={modalQuantity} readOnly />
+                    <button onClick={() => setModalQuantity(prev => prev + 1)}>
+                      +
+                    </button>
+                  </div>
+
+                  <button className="arome-btn-action arome-btn-cart" onClick={() => alert(`Added ${modalQuantity} items to cart!`)}>
+                    ADD TO CART
+                  </button>
+                </div>
+
+                <button className="arome-btn-action arome-btn-buy" onClick={() => alert('Proceeding to Checkout immediately!')}>
+                  BUY IT NOW
+                </button>
+              </div>
+
+              {/* View Full Details Redirection Link */}
+              <div className="arome-view-details-wrapper">
+                <a href="#/full-details-blank" target="_blank" rel="noopener noreferrer" className="arome-view-details-link">
+                  View full details <span>↗</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

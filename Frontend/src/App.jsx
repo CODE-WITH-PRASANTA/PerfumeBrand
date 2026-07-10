@@ -21,7 +21,6 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
-<<<<<<< HEAD
 
          <Route path="/account" element={<Login/>} />
          <Route path="/wishlist" element={< PerfumeWishlist/>} />
@@ -31,7 +30,6 @@ function App() {
         
 
 
-=======
         <Route path="/login" element={<Login/>} />
         <Route path="/PerfumeWishlist" element={< PerfumeWishlist/>} />
         <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
@@ -41,7 +39,6 @@ function App() {
         <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
         <Route path="/limited-edition" element={<LimitedEdition/>} />
         <Route path="/home" element={<Home />} />
->>>>>>> b176f5e66aa9011bb313b382f4fddd2947a3868a
         <Route path="/about-us" element={<About />} />
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/Contact" element={<Contact />}/>
