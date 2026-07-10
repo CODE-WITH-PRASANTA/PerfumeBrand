@@ -1,0 +1,423 @@
+:root {
+  /* UPDATED: Matches your perfume image background perfectly to eliminate double borders */
+  --cream-card-bg: #fbf1f0;
+  --plum-accent: #523249;
+  --plum-dark: #221a1f;
+  
+  /* Kept structure layout colors */
+  --text-primary: #1c1b1b;
+  --text-secondary: #706f6f;
+  --border-light: #ece9e8;
+  --star-tint: #523249;
+}
+
+.perfume-catalog-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.catalog-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+}
+
+.layout-toggle-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.layout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: -2px;
+  font-weight: bold;
+  color: #c2bebd;
+  transition: color 0.2s ease;
+}
+
+.layout-btn:hover, .layout-btn.active {
+  color: var(--plum-accent);
+}
+
+.sorting-and-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-label {
+  font-size: 14px;
+}
+
+.sort-dropdown {
+  border: 1px solid #d1c9c7;
+  padding: 8px 30px 8px 14px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.product-count {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.catalog-main-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+}
+
+.catalog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-section {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 14px;
+}
+
+.filter-header-clickable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.filter-header-clickable:hover .filter-title {
+  color: var(--plum-accent);
+}
+
+.filter-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.arrow-indicator {
+  font-size: 9px;
+  color: var(--text-secondary);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.arrow-indicator.expanded {
+  transform: rotate(180deg);
+}
+
+.filter-content-wrapper {
+  padding-top: 12px;
+  animation: slideFilterFade 0.2s ease-out;
+}
+
+@keyframes slideFilterFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-checkbox-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-checkbox-row input {
+  accent-color: var(--plum-accent);
+  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-label {
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+.scrollable-filter-list {
+  max-height: 140px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.scrollable-filter-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollable-filter-list::-webkit-scrollbar-track {
+  background: #fdfaf9;
+}
+
+.scrollable-filter-list::-webkit-scrollbar-thumb {
+  background: #c3bcbb;
+  border-radius: 4px;
+}
+
+.scrollable-filter-list::-webkit-scrollbar-thumb:hover {
+  background: var(--plum-accent);
+}
+
+.price-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-field-box {
+  position: relative;
+  border: 1px solid #c8bfc1;
+  border-radius: 4px;
+  padding: 6px 10px 6px 20px;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 8px;
+  top: 18px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.input-field-box input {
+  border: none;
+  outline: none;
+  width: 60px;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.input-field-box label {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 10px;
+  color: #9c9294;
+  text-transform: uppercase;
+}
+
+.input-separator {
+  color: #bfa8ab;
+}
+
+.products-grid-system {
+  display: grid;
+  gap: 30px 20px;
+}
+
+.products-grid-system.columns-2 { grid-template-columns: repeat(2, 1fr); }
+.products-grid-system.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.products-grid-system.columns-4 { grid-template-columns: repeat(4, 1fr); }
+
+.no-products-found {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.card-media-link-wrapper {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-media-box {
+  background-color: var(--cream-card-bg);
+  border-radius: 8px;
+  position: relative;
+  aspect-ratio: 1 / 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-display-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensures solid coverage with background colors */
+  transition: opacity 0.3s ease;
+}
+
+.perfume-product-card:hover .product-display-image {
+  transform: scale(1.02);
+}
+
+.product-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background-color: var(--plum-accent);
+  color: white;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.product-badge.sold-out {
+  background-color: #222;
+}
+
+.card-info-box {
+  padding-top: 12px;
+  text-align: center;
+}
+
+.product-rating-stars {
+  color: var(--star-tint);
+  margin-bottom: 4px;
+}
+
+.product-display-title {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+}
+
+.product-display-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.product-display-title a:hover {
+  color: var(--plum-accent);
+}
+
+.current-price {
+  font-weight: bold;
+  color: var(--plum-accent);
+}
+
+.slashed-old-price {
+  text-decoration: line-through;
+  color: #a39b99;
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.pagination-navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 50px;
+}
+
+.pagination-box-btn {
+  background-color: white;
+  color: var(--text-primary);
+  border: 1px solid #dcd8d7;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.pagination-box-btn.current-active {
+  background-color: var(--plum-accent);
+  border-color: var(--plum-accent);
+  color: white;
+  font-weight: bold;
+}
+
+.pagination-box-btn:hover:not(:disabled) {
+  border-color: var(--plum-accent);
+  color: var(--plum-accent);
+}
+
+.pagination-box-btn.current-active:hover {
+  color: white;
+}
+
+.pagination-box-btn:disabled {
+  background-color: #f5f5f5;
+  color: #c2bebd;
+  border-color: #e0dbda;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .products-grid-system.columns-4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .catalog-main-layout { grid-template-columns: 1fr; }
+  .catalog-sidebar { display: none; }
+  .layout-toggle-buttons { display: none; }
+  .products-grid-system.columns-3, .products-grid-system.columns-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==========================================================================
+   UPDATED: HOVER ACTION BUTTONS CONFIGURATION
+   ========================================================================== */
+
+.hover-action-buttons {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.perfume-product-card:hover .hover-action-buttons {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.action-btn {
+  background-color: #ffffff;
+  color: #555555;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.action-btn:hover {
+  background-color: var(--plum-accent);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}

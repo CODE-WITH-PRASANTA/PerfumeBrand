@@ -9,12 +9,18 @@ import Blog from "./Pages/Blog/Blog";
 import BlogDetail from "./Pages/BlogDetail/BlogDetail";
 import Allperfume from "./Pages/Allperfume/Allperfume";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Toilette from "./Pages/Toilette/Toilette";
 
 =======
+=======
+import LimitedEdition from "./Pages/LimitedEdition/LimitedEdition";
+
+>>>>>>> 759acd2a5320cc8a92ea4b8b3ca4101ee1afb0cf
 import Navbar from "./Pages/Navbar/Navbar";
 import Footer from "./Pages/Footer/Footer";
 import Wishlist from "./Pages/Wishlist/Wishlist";
+import Home from "./Pages/Home/Home";
 import Cart from "./Pages/Cart/Cart";
 >>>>>>> 4bb4db5a25c7a9b2f86ecde7b3c081fe79ff245d
 
@@ -26,8 +32,11 @@ function App() {
       <Routes>
 
          <Route path="/account" element={<Login/>} />
-         <Route path="/PerfumeWishlist" element={< PerfumeWishlist/>} />
+         <Route path="/wishlist" element={< PerfumeWishlist/>} />
          <Route path="/PerfumeDetails" element={<PerfumeDetails/>} />
+         <Route path="/limited-edition" element={<LimitedEdition/>} />
+         <Route path="/home" element={<Home/>} />
+        
 
 
         <Route path="/about-us" element={<About />} />
@@ -42,6 +51,7 @@ function App() {
         
 =======
         <Route path="/all-perfumes" element={<Allperfume />} />
+       
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
 >>>>>>> 4bb4db5a25c7a9b2f86ecde7b3c081fe79ff245d

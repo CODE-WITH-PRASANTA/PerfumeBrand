@@ -1,0 +1,143 @@
+/* Color Palette & Base Fonts */
+.sectionContainer {
+  background-color: #f7f2eb; /* Precise cream background from image */
+  padding: 60px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Typography styles matching image */
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.subHeading {
+  color: #704f4f; /* Muted corporate burgundy-brown tint */
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.mainHeading {
+  color: #1a1a1a;
+  font-family: 'Playfair Display', 'Didot', 'Georgia', serif; /* Elegant high-end serif look */
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Media Framework */
+.mediaWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px; /* Clean premium rounded corners */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16 / 6.5; /* Matches the ultra-wide aspect ratio seen in the image */
+  background-color: #1c1326; /* Dark background placeholder to prevent flash during loading */
+}
+
+.displayImage,
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Interaction Hover & Overlay Effects */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15); /* Soft premium tint overlay */
+  display: flex;
+  justify-content: flex-end; /* Align elements to the right side */
+  align-items: flex-start;  /* Position elements toward the top */
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.playButton {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+
+/* Smooth Interactive Hover State */
+.playButton:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.playIcon {
+  width: 22px;
+  height: 22px;
+  margin-left: 3px; /* Centers the triangle optically inside the circle */
+}
+
+/* Responsive Brakepoints */
+.desktopOnly {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .mediaWrapper {
+    aspect-ratio: 16 / 9; /* Adapts beautifully to standard proportions on tablets */
+  }
+  .mainHeading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionContainer {
+    padding: 40px 16px;
+  }
+  .mainHeading {
+    font-size: 1.6rem;
+  }
+  .desktopOnly {
+    display: none;
+  }
+  .playButton {
+    width: 48px;
+    height: 48px;
+  }
+  .playIcon {
+    width: 18px;
+    height: 18px;
+  }
+  .overlay {
+    padding: 15px;
+  }
+}
