@@ -55,7 +55,11 @@
 .main-title-hover:hover::after { width: 100%; }
 
 /* --- Animated Dropdowns --- */
-.navbar-nav-item { position: relative; }
+.navbar-nav-item { position: relative }
+
+.navbar-dropdown-menu.mobile-visible li {
+  list-style: none;
+}
 
 @media (min-width: 769px) {
   .navbar-dropdown-menu {
@@ -72,6 +76,7 @@
 }
 
 .navbar-dropdown-menu li a {
+  list-style: none;
   display: block; padding: 12px 25px;
   color: #555; text-decoration: none; font-size: 14px;
   font-weight: 500; transition: var(--transition);
@@ -150,4 +155,12 @@
   .navbar-dropdown-menu.mobile-visible { display: block; }
   .navbar-chevron { transition: 0.3s; }
   .navbar-chevron.rotated { transform: rotate(180deg); }
+}
+
+/* Add this to your CSS file */
+.navbar-nav-list, 
+.navbar-dropdown-menu,
+.navbar-nav-item,
+.navbar-dropdown-menu li {
+  list-style: none;
 }

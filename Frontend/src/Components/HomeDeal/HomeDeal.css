@@ -16,7 +16,6 @@
 /* --- Base Layout --- */
 .deal-container {
   background-color: var(--color-bg-main);
-  min-height: 100vh;
   padding: 1rem;
   font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
   color: var(--color-text-main);
